@@ -1,0 +1,12 @@
+﻿neuromaps.datasets.upload_annotation
+====================================
+
+.. currentmodule:: neuromaps.datasets
+
+.. autofunction:: upload_annotation
+
+.. .. include:: modules/neuromaps.datasets.upload_annotation.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

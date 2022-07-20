@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>neuromaps.transforms.mni152_to_fslr &mdash; neuromaps 0+untagged.1.g185444b documentation</title>
+  <title>neuromaps.datasets.upload_annotation &mdash; neuromaps 0+untagged.1.g185444b documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
@@ -24,8 +24,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="neuromaps.transforms.mni152_to_mni152" href="neuromaps.transforms.mni152_to_mni152.html" />
-    <link rel="prev" title="neuromaps.transforms.mni152_to_fsaverage" href="neuromaps.transforms.mni152_to_fsaverage.html" /> 
+    <link rel="next" title="neuromaps.images.load_gifti" href="neuromaps.images.load_gifti.html" />
+    <link rel="prev" title="neuromaps.datasets.get_atlas_dir" href="neuromaps.datasets.get_atlas_dir.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -54,7 +54,21 @@
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing a new brain map</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing neuromaps</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">Reference API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../api.html#module-neuromaps.datasets"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neuromaps.datasets</span></code> - Dataset fetchers</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api.html#module-neuromaps.datasets"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neuromaps.datasets</span></code> - Dataset fetchers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="neuromaps.datasets.fetch_atlas.html">neuromaps.datasets.fetch_atlas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="neuromaps.datasets.fetch_civet.html">neuromaps.datasets.fetch_civet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="neuromaps.datasets.fetch_fsaverage.html">neuromaps.datasets.fetch_fsaverage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="neuromaps.datasets.fetch_fslr.html">neuromaps.datasets.fetch_fslr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="neuromaps.datasets.fetch_mni152.html">neuromaps.datasets.fetch_mni152</a></li>
+<li class="toctree-l3"><a class="reference internal" href="neuromaps.datasets.fetch_regfusion.html">neuromaps.datasets.fetch_regfusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="neuromaps.datasets.fetch_all_atlases.html">neuromaps.datasets.fetch_all_atlases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="neuromaps.datasets.available_annotations.html">neuromaps.datasets.available_annotations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="neuromaps.datasets.available_tags.html">neuromaps.datasets.available_tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="neuromaps.datasets.fetch_annotation.html">neuromaps.datasets.fetch_annotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="neuromaps.datasets.get_atlas_dir.html">neuromaps.datasets.get_atlas_dir</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">neuromaps.datasets.upload_annotation</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../api.html#module-neuromaps.images"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neuromaps.images</span></code> - Image and surface handling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api.html#module-neuromaps.nulls"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neuromaps.nulls</span></code> - Null models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api.html#module-neuromaps.parcellate"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neuromaps.parcellate</span></code> - Parcellation utilities</a></li>
@@ -62,22 +76,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../api.html#module-neuromaps.points"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neuromaps.points</span></code> - Triangle mesh utilites</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api.html#module-neuromaps.resampling"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neuromaps.resampling</span></code> - Resampling workflows</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api.html#module-neuromaps.stats"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neuromaps.stats</span></code> - Statistical functions</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../api.html#module-neuromaps.transforms"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neuromaps.transforms</span></code> - Transformations between spaces</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="neuromaps.transforms.mni152_to_civet.html">neuromaps.transforms.mni152_to_civet</a></li>
-<li class="toctree-l3"><a class="reference internal" href="neuromaps.transforms.mni152_to_fsaverage.html">neuromaps.transforms.mni152_to_fsaverage</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">neuromaps.transforms.mni152_to_fslr</a></li>
-<li class="toctree-l3"><a class="reference internal" href="neuromaps.transforms.mni152_to_mni152.html">neuromaps.transforms.mni152_to_mni152</a></li>
-<li class="toctree-l3"><a class="reference internal" href="neuromaps.transforms.civet_to_fslr.html">neuromaps.transforms.civet_to_fslr</a></li>
-<li class="toctree-l3"><a class="reference internal" href="neuromaps.transforms.fslr_to_civet.html">neuromaps.transforms.fslr_to_civet</a></li>
-<li class="toctree-l3"><a class="reference internal" href="neuromaps.transforms.civet_to_fsaverage.html">neuromaps.transforms.civet_to_fsaverage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="neuromaps.transforms.fsaverage_to_civet.html">neuromaps.transforms.fsaverage_to_civet</a></li>
-<li class="toctree-l3"><a class="reference internal" href="neuromaps.transforms.civet_to_civet.html">neuromaps.transforms.civet_to_civet</a></li>
-<li class="toctree-l3"><a class="reference internal" href="neuromaps.transforms.fslr_to_fsaverage.html">neuromaps.transforms.fslr_to_fsaverage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="neuromaps.transforms.fsaverage_to_fslr.html">neuromaps.transforms.fsaverage_to_fslr</a></li>
-<li class="toctree-l3"><a class="reference internal" href="neuromaps.transforms.fslr_to_fslr.html">neuromaps.transforms.fslr_to_fslr</a></li>
-<li class="toctree-l3"><a class="reference internal" href="neuromaps.transforms.fsaverage_to_fsaverage.html">neuromaps.transforms.fsaverage_to_fsaverage</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#module-neuromaps.transforms"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neuromaps.transforms</span></code> - Transformations between spaces</a></li>
 </ul>
 </li>
 </ul>
@@ -97,7 +96,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../api.html">Reference API</a> &raquo;</li>
-      <li>neuromaps.transforms.mni152_to_fslr</li>
+      <li>neuromaps.datasets.upload_annotation</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -106,26 +105,29 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="neuromaps-transforms-mni152-to-fslr">
-<h1>neuromaps.transforms.mni152_to_fslr<a class="headerlink" href="#neuromaps-transforms-mni152-to-fslr" title="Permalink to this heading"></a></h1>
+  <section id="neuromaps-datasets-upload-annotation">
+<h1>neuromaps.datasets.upload_annotation<a class="headerlink" href="#neuromaps-datasets-upload-annotation" title="Permalink to this heading"></a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="neuromaps.transforms.mni152_to_fslr">
-<span class="sig-prename descclassname"><span class="pre">neuromaps.transforms.</span></span><span class="sig-name descname"><span class="pre">mni152_to_fslr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fslr_density</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'32k'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/neuromaps/transforms.html#mni152_to_fslr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#neuromaps.transforms.mni152_to_fslr" title="Permalink to this definition"></a></dt>
-<dd><p>Projects <cite>img</cite> in MNI152 space to fsLR surface</p>
+<dt class="sig sig-object py" id="neuromaps.datasets.upload_annotation">
+<span class="sig-prename descclassname"><span class="pre">neuromaps.datasets.</span></span><span class="sig-name descname"><span class="pre">upload_annotation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">files</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">osf_token</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nmweb_token</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/neuromaps/datasets/contributions.html#upload_annotation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#neuromaps.datasets.upload_annotation" title="Permalink to this definition"></a></dt>
+<dd><p>Workflow for contributing new brain annotation <cite>files</cite> to <cite>neuromaps</cite></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>img</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.6/library/os.html#os.PathLike" title="(in Python v3.6)"><em>os.PathLike</em></a><em> or </em><em>niimg_like</em>) – Image in MNI152 space to be projected</p></li>
-<li><p><strong>fslr_density</strong> (<em>{'32k'</em><em>, </em><em>'164k'}</em><em>, </em><em>optional</em>) – Desired output density of fsLR surface. Default: ‘32k’</p></li>
-<li><p><strong>method</strong> (<em>{'nearest'</em><em>, </em><em>'linear'}</em><em>, </em><em>optional</em>) – Method for projection. Specify ‘nearest’ if <cite>img</cite> is a label image.
-Default: ‘linear’</p></li>
+<li><p><strong>files</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.6/library/os.html#os.PathLike" title="(in Python v3.6)"><em>os.PathLike</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#tuple" title="(in Python v3.6)"><em>tuple</em></a>) – File(s) to be contributed</p></li>
+<li><p><strong>user</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – E-mail address that can be used to contact you in case the <cite>neuromaps</cite>
+maintainers have questions about the uploaded files. Default: None</p></li>
+<li><p><strong>osf_token</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a><em>, </em><em>optional</em>) – Personal access token with authorization to OSF repository. Only needed
+if trying to upload files large than 30 MB. Default: None</p></li>
+<li><p><strong>nmweb_token</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a><em>, </em><em>optional</em>) – Personal access token for <cite>neuromaps-web</cite> server. If provided (and
+authorized) a PR will be created automatically. Default: None</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>fsLR</strong> – Projected <cite>img</cite> on fsLR surface</p>
+<dd class="field-even"><p><strong>response</strong> – Response object from <cite>neuromaps-web</cite> API</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>(2,) tuple-of-nib.GiftiImage</p>
+<dd class="field-odd"><p>requests.Response</p>
 </dd>
 </dl>
 </dd></dl>
@@ -136,8 +138,8 @@ Default: ‘linear’</p></li>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="neuromaps.transforms.mni152_to_fsaverage.html" class="btn btn-neutral float-left" title="neuromaps.transforms.mni152_to_fsaverage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="neuromaps.transforms.mni152_to_mni152.html" class="btn btn-neutral float-right" title="neuromaps.transforms.mni152_to_mni152" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="neuromaps.datasets.get_atlas_dir.html" class="btn btn-neutral float-left" title="neuromaps.datasets.get_atlas_dir" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="neuromaps.images.load_gifti.html" class="btn btn-neutral float-right" title="neuromaps.images.load_gifti" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

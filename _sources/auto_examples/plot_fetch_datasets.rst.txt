@@ -55,7 +55,7 @@ function that can fetch any of the atlases provided with ``neuromaps``:
  .. code-block:: none
 
     Downloading data from https://files.osf.io/v1/resources/4mw3a/providers/osfstorage/60b684b53a6df1021bd4df2d ...
-     ...done. (1 seconds, 0 min)
+     ...done. (2 seconds, 0 min)
     Extracting data from /home/runner/neuromaps-data/ac53e497d7d6c6379ee7bd7bda6e0267/fsLR32k.tar.gz..... done.
     dict_keys(['midthickness', 'inflated', 'veryinflated', 'sphere', 'medial', 'sulc', 'vaavg'])
 
@@ -120,7 +120,7 @@ are returned by default via :func:`datasets.available_annotations`.
 
  .. code-block:: none
 
-    Available annotations: 31
+    Available annotations: 72
 
 
 
@@ -150,7 +150,7 @@ are, by default, a volumetric image:
 
  .. code-block:: none
 
-    Available volumetric annotations: 2
+    Available volumetric annotations: 39
 
 
 
@@ -212,7 +212,7 @@ functions:
 
  .. code-block:: none
 
-    ['ASL', 'MEG', 'MRI', 'fMRI', 'functional', 'genetics', 'meta-analysis', 'structural']
+    ['ASL', 'MEG', 'MRI', 'PET', 'fMRI', 'functional', 'genetics', 'meta-analysis', 'receptors', 'structural']
 
 
 
@@ -276,7 +276,7 @@ brain (from the Allen Human Brain Atlas):
  .. code-block:: none
 
     Downloading data from https://files.osf.io/v1/resources/4mw3a/providers/osfstorage/60c2290118f70b01fca797eb ...
-     ...done. (1 seconds, 0 min)
+     ...done. (2 seconds, 0 min)
     Downloading data from https://files.osf.io/v1/resources/4mw3a/providers/osfstorage/60c228f5f3ce9401fa24e521 ...
      ...done. (1 seconds, 0 min)
     ['/home/runner/neuromaps-data/annotations/abagen/genepc1/fsaverage/source-abagen_desc-genepc1_space-fsaverage_den-10k_hemi-L_feature.func.gii', '/home/runner/neuromaps-data/annotations/abagen/genepc1/fsaverage/source-abagen_desc-genepc1_space-fsaverage_den-10k_hemi-R_feature.func.gii']
@@ -324,7 +324,7 @@ information please refer to the :ref:`API reference <ref_datasets>`.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.874 seconds)
+   **Total running time of the script:** ( 0 minutes  4.518 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_fetch_datasets.py:
