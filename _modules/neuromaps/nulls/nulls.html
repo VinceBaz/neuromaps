@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>neuromaps.nulls.nulls &mdash; neuromaps 0+untagged.1.g185444b documentation</title>
+  <title>neuromaps.nulls.nulls &mdash; neuromaps 0+untagged.1.gb200395 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
@@ -34,7 +34,7 @@
             <img src="../../../_static/neuromaps_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0+untagged.1.g185444b
+                0+untagged.1.gb200395
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -114,39 +114,52 @@
 
 
 <span class="n">_nulls_input_docs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">data_or_none_surface</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="s2">data : array_like or path_like or giimg_like or tuple</span>
+<span class="s2">    Input data from which to generate null maps. If None is provided then</span>
+<span class="s2">    the resampling array will be returned instead. When a parcellation is</span>
+<span class="s2">    provided, the data must be parcellated and array-like. Otherwise, the data</span>
+<span class="s2">    must be a surface-based image (giimg_like, e.g. nib.GiftiImage) or a</span>
+<span class="s2">    path-like object (`str` or `os.PathLike`) pointing to an image file.</span><span class="se">\</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">,</span>
     <span class="n">data_or_none_parcel</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
 <span class="s2">data : (N,) array_like</span>
 <span class="s2">    Input data from which to generate null maps. The data must be</span>
-<span class="s2">    parcellated. If None is provided then the resampling array will be returned</span>
-<span class="s2">    instead.</span><span class="se">\</span>
+<span class="s2">    parcellated and array-like. If None is provided then the resampling array</span>
+<span class="s2">    will be returned instead.</span><span class="se">\</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">,</span>
     <span class="n">data_parcel</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
 <span class="s2">data : (N,) array_like</span>
 <span class="s2">    Input data from which to generate null maps. The data must be</span>
-<span class="s2">    parcellated.</span><span class="se">\</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="p">,</span>
-    <span class="n">data_alexander_bloch</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
-<span class="s2">data : array_like or tuple-of-str or PathLike or nib.GiftiImage</span>
-<span class="s2">    Input data from which to generate null maps. If None is provided then</span>
-<span class="s2">    the resampling array will be returned instead. If a parcellation is</span>
-<span class="s2">    provided, the data must be parcellated.</span><span class="se">\</span>
+<span class="s2">    parcellated and array-like.</span><span class="se">\</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">,</span>
     <span class="n">data</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
-<span class="s2">data : array_like or str or os.PathLike or niimg_like or tuple</span>
-<span class="s2">    Input data from which to generate null maps. If a parcellation is</span>
-<span class="s2">    provided, the data must be parcellated.</span><span class="se">\</span>
+<span class="s2">data : array_like or path_like or niimg_like or giimg_like or tuple</span>
+<span class="s2">    Input data from which to generate null maps. When a parcellation is</span>
+<span class="s2">    provided, the data must be parcellated and array-like. Otherwise, the data</span>
+<span class="s2">    can either be a volumetric image (niimg_like, e.g. nib.Nifti1Image) or a</span>
+<span class="s2">    surface-based image (giimg_like, e.g. nib.GiftiImage). Alternatively, it</span>
+<span class="s2">    can be a path-like object (`str` or `os.PathLike`) pointing to an image</span>
+<span class="s2">    file.</span><span class="se">\</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">,</span>
-    <span class="n">atlas_density</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+    <span class="n">atlas_density_surface</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
 <span class="s2">atlas : {&#39;fsLR&#39;, &#39;fsaverage&#39;, &#39;civet&#39;}, optional</span>
 <span class="s2">    Name of surface atlas on which `data` are defined. Default: &#39;fsaverage&#39;</span>
 <span class="s2">density : str, optional</span>
 <span class="s2">    Density of surface mesh on which `data` are defined. Must be</span>
 <span class="s2">    compatible with specified `atlas`. Default: &#39;10k&#39;</span><span class="se">\</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">,</span>
+    <span class="n">atlas_density</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="s2">atlas : {&#39;fsLR&#39;, &#39;fsaverage&#39;, &#39;civet&#39;, &#39;mni152&#39;}, optional</span>
+<span class="s2">    Name of atlas on which `data` are defined. Default: &#39;fsaverage&#39;</span>
+<span class="s2">density : str, optional</span>
+<span class="s2">    Density of atlas on which `data` are defined. Must be</span>
+<span class="s2">    compatible with specified `atlas`. Default: &#39;10k&#39;</span><span class="se">\</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">,</span>
     <span class="n">parcellation</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
 <span class="s2">parcellation : tuple-of-str or os.PathLike, optional</span>
 <span class="s2">    Filepaths to parcellation images ([left, right] hemisphere) mapping `data`</span>
-<span class="s2">    to surface mesh specified by `atlas` and `density`. Should only be supplied</span>
+<span class="s2">    to atlas specified by `atlas` and `density`. Should only be supplied</span>
 <span class="s2">    if `data` represents a parcellated null map. Default: None</span><span class="se">\</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">,</span>
     <span class="n">n_perm</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
@@ -217,8 +230,8 @@
 
 <span class="s2">Parameters</span>
 <span class="s2">----------</span>
-<span class="si">{data_alexander_bloch}</span><span class="s2"></span>
-<span class="si">{atlas_density}</span><span class="s2"></span>
+<span class="si">{data_or_none_surface}</span><span class="s2"></span>
+<span class="si">{atlas_density_surface}</span><span class="s2"></span>
 <span class="si">{parcellation}</span><span class="s2"></span>
 <span class="si">{n_perm}</span><span class="s2"></span>
 <span class="si">{seed}</span><span class="s2"></span>
@@ -272,7 +285,7 @@
 <span class="s2">Parameters</span>
 <span class="s2">----------</span>
 <span class="si">{data_or_none_parcel}</span><span class="s2"></span>
-<span class="si">{atlas_density}</span><span class="s2"></span>
+<span class="si">{atlas_density_surface}</span><span class="s2"></span>
 <span class="si">{parcellation}</span><span class="s2"></span>
 <span class="si">{n_perm}</span><span class="s2"></span>
 <span class="si">{seed}</span><span class="s2"></span>
@@ -323,7 +336,7 @@
 <span class="s2">Parameters</span>
 <span class="s2">----------</span>
 <span class="si">{data_or_none_parcel}</span><span class="s2"></span>
-<span class="si">{atlas_density}</span><span class="s2"></span>
+<span class="si">{atlas_density_surface}</span><span class="s2"></span>
 <span class="si">{parcellation}</span><span class="s2"></span>
 <span class="si">{n_perm}</span><span class="s2"></span>
 <span class="si">{seed}</span><span class="s2"></span>
@@ -369,7 +382,7 @@
 <span class="s2">Parameters</span>
 <span class="s2">----------</span>
 <span class="si">{data_or_none_parcel}</span><span class="s2"></span>
-<span class="si">{atlas_density}</span><span class="s2"></span>
+<span class="si">{atlas_density_surface}</span><span class="s2"></span>
 <span class="si">{parcellation}</span><span class="s2"></span>
 <span class="si">{n_perm}</span><span class="s2"></span>
 <span class="si">{seed}</span><span class="s2"></span>
@@ -413,7 +426,7 @@
 <span class="s2">Parameters</span>
 <span class="s2">----------</span>
 <span class="si">{data_parcel}</span><span class="s2"></span>
-<span class="si">{atlas_density}</span><span class="s2"></span>
+<span class="si">{atlas_density_surface}</span><span class="s2"></span>
 <span class="si">{parcellation}</span><span class="s2"></span>
 <span class="si">{n_perm}</span><span class="s2"></span>
 <span class="si">{seed}</span><span class="s2"></span>
@@ -463,7 +476,7 @@
 <span class="s2">----------</span>
 <span class="s2">hemisphere : {{&#39;L&#39;, &#39;R&#39;}}</span>
 <span class="s2">    Hemisphere of surface from which to generate distance matrix</span>
-<span class="si">{atlas_density}</span><span class="s2"></span>
+<span class="si">{atlas_density_surface}</span><span class="s2"></span>
 <span class="si">{parcellation}</span><span class="s2"></span>
 <span class="s2">drop : list-of-str, optional</span>
 <span class="s2">    If `parcellation` is not None, which parcels should be ignored / dropped</span>

@@ -50,8 +50,6 @@ function that can fetch any of the atlases provided with ``neuromaps``:
 
 .. rst-class:: sphx-glr-script-out
 
- Out:
-
  .. code-block:: none
 
     Downloading data from https://files.osf.io/v1/resources/4mw3a/providers/osfstorage/60b684b53a6df1021bd4df2d ...
@@ -86,8 +84,6 @@ You can load them directly with ``nibabel`` to confirm their validity:
 
 .. rst-class:: sphx-glr-script-out
 
- Out:
-
  .. code-block:: none
 
     (32492, 3) (64980, 3)
@@ -116,8 +112,6 @@ are returned by default via :func:`datasets.available_annotations`.
 
 .. rst-class:: sphx-glr-script-out
 
- Out:
-
  .. code-block:: none
 
     Available annotations: 72
@@ -145,8 +139,6 @@ are, by default, a volumetric image:
 
 
 .. rst-class:: sphx-glr-script-out
-
- Out:
 
  .. code-block:: none
 
@@ -179,8 +171,6 @@ clarifies the density of the surface on which the annotation is defined:
 
 .. rst-class:: sphx-glr-script-out
 
- Out:
-
  .. code-block:: none
 
     [('abagen', 'genepc1', 'fsaverage', '10k')]
@@ -208,8 +198,6 @@ functions:
 
 .. rst-class:: sphx-glr-script-out
 
- Out:
-
  .. code-block:: none
 
     ['ASL', 'MEG', 'MRI', 'PET', 'fMRI', 'functional', 'genetics', 'meta-analysis', 'receptors', 'structural']
@@ -236,8 +224,6 @@ list will only return those annotations that match ALL supplied tags:
 
 
 .. rst-class:: sphx-glr-script-out
-
- Out:
 
  .. code-block:: none
 
@@ -270,8 +256,6 @@ brain (from the Allen Human Brain Atlas):
 
 
 .. rst-class:: sphx-glr-script-out
-
- Out:
 
  .. code-block:: none
 
@@ -306,8 +290,6 @@ argument to the fetch call:
 
 .. rst-class:: sphx-glr-script-out
 
- Out:
-
  .. code-block:: none
 
     ['/home/runner/neuromaps-data/annotations/abagen/genepc1/fsaverage/source-abagen_desc-genepc1_space-fsaverage_den-10k_hemi-L_feature.func.gii', '/home/runner/neuromaps-data/annotations/abagen/genepc1/fsaverage/source-abagen_desc-genepc1_space-fsaverage_den-10k_hemi-R_feature.func.gii']
@@ -324,28 +306,23 @@ information please refer to the :ref:`API reference <ref_datasets>`.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  4.518 seconds)
+   **Total running time of the script:** ( 0 minutes  5.144 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_fetch_datasets.py:
 
+.. only:: html
 
-.. only :: html
-
- .. container:: sphx-glr-footer
-    :class: sphx-glr-footer-example
+  .. container:: sphx-glr-footer sphx-glr-footer-example
 
 
+    .. container:: sphx-glr-download sphx-glr-download-python
 
-  .. container:: sphx-glr-download sphx-glr-download-python
+      :download:`Download Python source code: plot_fetch_datasets.py <plot_fetch_datasets.py>`
 
-     :download:`Download Python source code: plot_fetch_datasets.py <plot_fetch_datasets.py>`
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
-
-  .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-     :download:`Download Jupyter notebook: plot_fetch_datasets.ipynb <plot_fetch_datasets.ipynb>`
+      :download:`Download Jupyter notebook: plot_fetch_datasets.ipynb <plot_fetch_datasets.ipynb>`
 
 
 .. only:: html

@@ -1,9 +1,5 @@
 :orphan:
 
-
-
-.. _sphx_glr_auto_examples:
-
 .. _examples_index:
 
 Examples
@@ -17,14 +13,42 @@ Examples
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="This example demonstrates how to use neuromaps.datasets to fetch atlases and annotations.">
 
 .. only:: html
 
- .. figure:: /auto_examples/images/thumb/sphx_glr_plot_fetch_datasets_thumb.png
-     :alt: Fetching atlases and annotations
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_fetch_datasets_thumb.png
+    :alt: Fetching atlases and annotations
 
-     :ref:`sphx_glr_auto_examples_plot_fetch_datasets.py`
+  :ref:`sphx_glr_auto_examples_plot_fetch_datasets.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Fetching atlases and annotations</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example demonstrates how to use spatial null models in neuromaps.nulls to test the correla...">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_spatial_nulls_thumb.png
+    :alt: Using spatial null models
+
+  :ref:`sphx_glr_auto_examples_plot_spatial_nulls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Using spatial null models</div>
+    </div>
+
 
 .. raw:: html
 
@@ -35,48 +59,20 @@ Examples
    :hidden:
 
    /auto_examples/plot_fetch_datasets
+   /auto_examples/plot_spatial_nulls
 
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="This example demonstrates how to use spatial null models in neuromaps.nulls to test the correla...">
 
 .. only:: html
 
- .. figure:: /auto_examples/images/thumb/sphx_glr_plot_spatial_nulls_thumb.png
-     :alt: Using spatial null models
+  .. container:: sphx-glr-footer sphx-glr-footer-gallery
 
-     :ref:`sphx_glr_auto_examples_plot_spatial_nulls.py`
+    .. container:: sphx-glr-download sphx-glr-download-python
 
-.. raw:: html
+      :download:`Download all examples in Python source code: auto_examples_python.zip </auto_examples/auto_examples_python.zip>`
 
-    </div>
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
-.. toctree::
-   :hidden:
-
-   /auto_examples/plot_spatial_nulls
-.. raw:: html
-
-    <div class="sphx-glr-clear"></div>
-
-
-
-.. only :: html
-
- .. container:: sphx-glr-footer
-    :class: sphx-glr-footer-gallery
-
-
-  .. container:: sphx-glr-download sphx-glr-download-python
-
-    :download:`Download all examples in Python source code: auto_examples_python.zip </auto_examples/auto_examples_python.zip>`
-
-
-
-  .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-    :download:`Download all examples in Jupyter notebooks: auto_examples_jupyter.zip </auto_examples/auto_examples_jupyter.zip>`
+      :download:`Download all examples in Jupyter notebooks: auto_examples_jupyter.zip </auto_examples/auto_examples_jupyter.zip>`
 
 
 .. only:: html

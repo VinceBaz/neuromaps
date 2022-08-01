@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fetching atlases and annotations &mdash; neuromaps 0+untagged.1.g185444b documentation</title>
+  <title>Fetching atlases and annotations &mdash; neuromaps 0+untagged.1.gb200395 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
@@ -37,7 +37,7 @@
             <img src="../_static/neuromaps_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0+untagged.1.g185444b
+                0+untagged.1.gb200395
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -105,7 +105,6 @@ function that can fetch any of the atlases provided with <code class="docutils l
 <span class="nb">print</span><span class="p">(</span><span class="n">fslr</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloading data from https://files.osf.io/v1/resources/4mw3a/providers/osfstorage/60b684b53a6df1021bd4df2d ...
  ...done. (2 seconds, 0 min)
 Extracting data from /home/runner/neuromaps-data/ac53e497d7d6c6379ee7bd7bda6e0267/fsLR32k.tar.gz..... done.
@@ -122,7 +121,6 @@ are provide in gifti format (whereas MNI files are in gzipped nifti format).</p>
 <span class="nb">print</span><span class="p">(</span><a href="https://docs.python.org/3.6/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">lvert</span><span class="o">.</span><span class="n">shape</span></a><span class="p">,</span> <a href="https://docs.python.org/3.6/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ltri</span><span class="o">.</span><span class="n">shape</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>(32492, 3) (64980, 3)
 </pre></div>
 </div>
@@ -134,7 +132,6 @@ are returned by default via <code class="xref py py-func docutils literal notran
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Available annotations: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><a href="https://docs.python.org/3.6/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">annotations</span></a><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Available annotations: 72
 </pre></div>
 </div>
@@ -146,7 +143,6 @@ are, by default, a volumetric image:</p>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Available volumetric annotations: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><a href="https://docs.python.org/3.6/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">volume_annotations</span></a><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Available volumetric annotations: 39
 </pre></div>
 </div>
@@ -161,7 +157,6 @@ clarifies the density of the surface on which the annotation is defined:</p>
 <span class="nb">print</span><span class="p">(</span><a href="https://docs.python.org/3.6/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">annot</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[(&#39;abagen&#39;, &#39;genepc1&#39;, &#39;fsaverage&#39;, &#39;10k&#39;)]
 </pre></div>
 </div>
@@ -172,7 +167,6 @@ functions:</p>
 <span class="nb">print</span><span class="p">(</span><a href="https://docs.python.org/3.6/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">tags</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;ASL&#39;, &#39;MEG&#39;, &#39;MRI&#39;, &#39;PET&#39;, &#39;fMRI&#39;, &#39;functional&#39;, &#39;genetics&#39;, &#39;meta-analysis&#39;, &#39;receptors&#39;, &#39;structural&#39;]
 </pre></div>
 </div>
@@ -183,7 +177,6 @@ list will only return those annotations that match ALL supplied tags:</p>
 <span class="nb">print</span><span class="p">(</span><a href="https://docs.python.org/3.6/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fmri_annotations</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[(&#39;margulies2016&#39;, &#39;fcgradient01&#39;, &#39;fsLR&#39;, &#39;32k&#39;), (&#39;margulies2016&#39;, &#39;fcgradient02&#39;, &#39;fsLR&#39;, &#39;32k&#39;), (&#39;margulies2016&#39;, &#39;fcgradient03&#39;, &#39;fsLR&#39;, &#39;32k&#39;), (&#39;margulies2016&#39;, &#39;fcgradient04&#39;, &#39;fsLR&#39;, &#39;32k&#39;), (&#39;margulies2016&#39;, &#39;fcgradient05&#39;, &#39;fsLR&#39;, &#39;32k&#39;), (&#39;margulies2016&#39;, &#39;fcgradient06&#39;, &#39;fsLR&#39;, &#39;32k&#39;), (&#39;margulies2016&#39;, &#39;fcgradient07&#39;, &#39;fsLR&#39;, &#39;32k&#39;), (&#39;margulies2016&#39;, &#39;fcgradient08&#39;, &#39;fsLR&#39;, &#39;32k&#39;), (&#39;margulies2016&#39;, &#39;fcgradient09&#39;, &#39;fsLR&#39;, &#39;32k&#39;), (&#39;margulies2016&#39;, &#39;fcgradient10&#39;, &#39;fsLR&#39;, &#39;32k&#39;), (&#39;mueller2013&#39;, &#39;intersubjvar&#39;, &#39;fsLR&#39;, &#39;164k&#39;), (&#39;neurosynth&#39;, &#39;cogpc1&#39;, &#39;MNI152&#39;, &#39;2mm&#39;)]
 </pre></div>
 </div>
@@ -198,7 +191,6 @@ brain (from the Allen Human Brain Atlas):</p>
 <span class="nb">print</span><span class="p">(</span><a href="https://docs.python.org/3.6/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">abagen</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloading data from https://files.osf.io/v1/resources/4mw3a/providers/osfstorage/60c2290118f70b01fca797eb ...
  ...done. (2 seconds, 0 min)
 Downloading data from https://files.osf.io/v1/resources/4mw3a/providers/osfstorage/60c228f5f3ce9401fa24e521 ...
@@ -215,15 +207,14 @@ argument to the fetch call:</p>
 <span class="nb">print</span><span class="p">(</span><a href="https://docs.python.org/3.6/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">abagen</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;/home/runner/neuromaps-data/annotations/abagen/genepc1/fsaverage/source-abagen_desc-genepc1_space-fsaverage_den-10k_hemi-L_feature.func.gii&#39;, &#39;/home/runner/neuromaps-data/annotations/abagen/genepc1/fsaverage/source-abagen_desc-genepc1_space-fsaverage_den-10k_hemi-R_feature.func.gii&#39;]
 </pre></div>
 </div>
 <p>And that’s it! This example provided a quick overview on how to fetch the
 various atlases and datasets provided with <code class="docutils literal notranslate"><span class="pre">neuromaps</span></code>. For more
 information please refer to the <a class="reference internal" href="../api.html#ref-datasets"><span class="std std-ref">API reference</span></a>.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  4.518 seconds)</p>
-<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-fetch-datasets-py">
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  5.144 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-fetch-datasets-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/a04ac8d81d8fed9e456dd9e2eb4c4519/plot_fetch_datasets.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_fetch_datasets.py</span></code></a></p>
 </div>
