@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>neuromaps.images &mdash; neuromaps 0+untagged.1.gb200395 documentation</title>
+  <title>neuromaps.images &mdash; neuromaps 0+untagged.1.g54aebbb documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
@@ -34,7 +34,7 @@
             <img src="../../_static/neuromaps_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0+untagged.1.gb200395
+                0+untagged.1.g54aebbb
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -259,14 +259,19 @@
 
 <span class="k">def</span> <span class="nf">load_data</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Small utility function to load + stack `data` images (gifti / nifti).</span>
+<span class="sd">    Small utility function to load and stack `data` images (gifti / nifti) into</span>
+<span class="sd">    numpy arrays.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    data: tuple or str or path_like or img_like or array_like</span>
-<span class="sd">        Data to be loaded. If `data` is img_like (i.e. a nib.Nifti1Image or</span>
-<span class="sd">        nib.GiftiImage object) or array-like (e.g. parcellated data), then</span>
-<span class="sd">        `data` is stacked, but not loaded.</span>
+<span class="sd">    data: path_like or niimg_like or giimg_like or array_like or tuple</span>
+<span class="sd">        Data images to be loaded. `data` can be a path-like object (`str` or</span>
+<span class="sd">        `os.PathLike`) pointing to an image file, a volumetric image</span>
+<span class="sd">        (niimg_like, e.g. nib.Nifti1Image) or a surface-based image</span>
+<span class="sd">        (giimg_like, e.g. nib.GiftiImage). If `data` is already parcellated</span>
+<span class="sd">        (array-like), it is converted to an array and returned as-is.</span>
+<span class="sd">        Images stored in a tuple will be loaded into numpy arrays, then</span>
+<span class="sd">        stacked.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -279,13 +284,22 @@
         <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="p">,)</span>
 
     <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># giimg_like or path_like (gifti)</span>
         <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">load_gifti</span><span class="p">(</span><span class="n">img</span><span class="p">)</span><span class="o">.</span><span class="n">agg_data</span><span class="p">()</span> <span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">data</span><span class="p">])</span>
-    <span class="k">except</span> <span class="p">(</span><span class="ne">AttributeError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">):</span>
-        <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">load_nifti</span><span class="p">(</span><span class="n">img</span><span class="p">)</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span> <span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">data</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-    <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">err</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;stat: embedded null character in path&#39;</span>
-                <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="ne">UnicodeDecodeError</span><span class="p">)):</span>
-            <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">except</span> <span class="p">(</span><span class="ne">AttributeError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">)</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+        <span class="c1"># niimg_like or path_like (nifti)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="ne">AttributeError</span><span class="p">)</span>
+            <span class="ow">or</span> <span class="nb">str</span><span class="p">(</span><span class="n">err</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;stat: path should be string, bytes, os.&#39;</span>
+                           <span class="s1">&#39;PathLike or integer, not Nifti1Image&#39;</span><span class="p">):</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">load_nifti</span><span class="p">(</span><span class="n">img</span><span class="p">)</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span> <span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">data</span><span class="p">],</span>
+                           <span class="n">axis</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+        <span class="c1"># array_like (parcellated)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">((</span><span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;int&#39;</span><span class="p">)):</span>
+                <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">err</span>
 
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
 

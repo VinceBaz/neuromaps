@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>neuromaps.parcellate &mdash; neuromaps 0+untagged.1.gb200395 documentation</title>
+  <title>neuromaps.parcellate &mdash; neuromaps 0+untagged.1.g54aebbb documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
@@ -34,7 +34,7 @@
             <img src="../../_static/neuromaps_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0+untagged.1.gb200395
+                0+untagged.1.g54aebbb
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -85,12 +85,14 @@
 
 <span class="kn">import</span> <span class="nn">nibabel</span> <span class="k">as</span> <span class="nn">nib</span>
 <span class="kn">from</span> <span class="nn">nilearn.input_data</span> <span class="kn">import</span> <span class="n">NiftiLabelsMasker</span>
+<span class="kn">from</span> <span class="nn">nilearn.image</span> <span class="kn">import</span> <span class="n">new_img_like</span>
+<span class="kn">from</span> <span class="nn">nilearn.masking</span> <span class="kn">import</span> <span class="n">compute_background_mask</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">neuromaps.datasets</span> <span class="kn">import</span> <span class="n">ALIAS</span><span class="p">,</span> <span class="n">DENSITIES</span>
-<span class="kn">from</span> <span class="nn">neuromaps.images</span> <span class="kn">import</span> <span class="n">construct_shape_gii</span><span class="p">,</span> <span class="n">load_gifti</span>
+<span class="kn">from</span> <span class="nn">neuromaps.datasets</span> <span class="kn">import</span> <span class="n">ALIAS</span><span class="p">,</span> <span class="n">DENSITIES</span><span class="p">,</span> <span class="n">fetch_atlas</span>
+<span class="kn">from</span> <span class="nn">neuromaps.images</span> <span class="kn">import</span> <span class="n">construct_shape_gii</span><span class="p">,</span> <span class="n">load_gifti</span><span class="p">,</span> <span class="n">load_data</span>
 <span class="kn">from</span> <span class="nn">neuromaps.resampling</span> <span class="kn">import</span> <span class="n">resample_images</span>
-<span class="kn">from</span> <span class="nn">neuromaps.transforms</span> <span class="kn">import</span> <span class="n">_check_hemi</span>
+<span class="kn">from</span> <span class="nn">neuromaps.transforms</span> <span class="kn">import</span> <span class="n">_check_hemi</span><span class="p">,</span> <span class="n">_estimate_density</span>
 <span class="kn">from</span> <span class="nn">neuromaps.nulls.spins</span> <span class="kn">import</span> <span class="n">vertices_to_parcels</span><span class="p">,</span> <span class="n">parcels_to_vertices</span>
 
 
@@ -168,7 +170,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_fit</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="Parcellater.transform"><a class="viewcode-back" href="../../generated/neuromaps.parcellate.Parcellater.html#neuromaps.parcellate.Parcellater.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">space</span><span class="p">,</span> <span class="n">hemi</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Parcellater.transform"><a class="viewcode-back" href="../../generated/neuromaps.parcellate.Parcellater.html#neuromaps.parcellate.Parcellater.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">space</span><span class="p">,</span> <span class="n">ignore_background_data</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                  <span class="n">background_value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">hemi</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Applies parcellation to `data` in `space`</span>
 
@@ -183,6 +186,20 @@
 <span class="sd">            dataset then this specifies which hemisphere. If not specified it</span>
 <span class="sd">            is assumed that `data` is (L, R) hemisphere. Ignored if `space` is</span>
 <span class="sd">            &#39;MNI152&#39;. Default: None</span>
+<span class="sd">        ignore_background_data: bool</span>
+<span class="sd">            Specifies whether the background data values should be ignored</span>
+<span class="sd">            when computing the average `data` within each parcel. If set to</span>
+<span class="sd">            True and `background_value` is set to None, the background_value is</span>
+<span class="sd">            estimated from the data: if there are NaNs in the data, the</span>
+<span class="sd">            background value is set to NaN. Otherwise, it is estimated as</span>
+<span class="sd">            the median of the values on the border of the images for</span>
+<span class="sd">            volumetric images or as the median of the values within the medial</span>
+<span class="sd">            wall for surface images. The background value can also be set</span>
+<span class="sd">            manually using the `background_value` parameter. Default: False</span>
+<span class="sd">        background_value: float</span>
+<span class="sd">            Specifies the background value to ignore when computing the</span>
+<span class="sd">            averages and when `ignore_background_data` is True.</span>
+<span class="sd">            Default: None</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -202,7 +219,7 @@
                 <span class="ow">and</span> <span class="n">space</span> <span class="o">!=</span> <span class="s1">&#39;MNI152&#39;</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Cannot use resampling_target=&quot;parcellation&quot; &#39;</span>
                              <span class="s1">&#39;when provided parcellation is in MNI152 space &#39;</span>
-                             <span class="s1">&#39;and provided are in surface space.&#39;</span><span class="p">)</span>
+                             <span class="s1">&#39;and provided data are in surface space.&#39;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">hemi</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">hemi</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">hemi</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Cannot parcellate data from </span><span class="si">{hemi}</span><span class="s1"> hemisphere &#39;</span>
@@ -211,26 +228,48 @@
 
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
             <span class="n">data</span> <span class="o">=</span> <span class="n">_array_to_gifti</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">resampling_target</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="n">resampling_method</span> <span class="o">=</span> <span class="s1">&#39;nearest&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">resampling_method</span> <span class="o">=</span> <span class="s1">&#39;linear&#39;</span>
         <span class="n">data</span><span class="p">,</span> <span class="n">parc</span> <span class="o">=</span> <span class="n">resample_images</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">parcellation</span><span class="p">,</span>
                                      <span class="n">space</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">space</span><span class="p">,</span> <span class="n">hemi</span><span class="o">=</span><span class="n">hemi</span><span class="p">,</span>
                                      <span class="n">resampling</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_resampling</span><span class="p">,</span>
-                                     <span class="n">method</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span>
+                                     <span class="n">method</span><span class="o">=</span><span class="n">resampling_method</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">resampling_target</span> <span class="o">==</span> <span class="s1">&#39;data&#39;</span>
              <span class="ow">and</span> <span class="n">space</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;mni152&#39;</span><span class="p">)</span>
                 <span class="ow">or</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">resampling_target</span> <span class="o">==</span> <span class="s1">&#39;parcellation&#39;</span>
                     <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_volumetric</span><span class="p">)):</span>
             <span class="n">data</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">concat_images</span><span class="p">([</span><span class="n">nib</span><span class="o">.</span><span class="n">squeeze_image</span><span class="p">(</span><span class="n">data</span><span class="p">)])</span>
+            <span class="k">if</span> <span class="n">ignore_background_data</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">background_value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">mask_img</span> <span class="o">=</span> <span class="n">compute_background_mask</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">mask_img</span> <span class="o">=</span> <span class="n">new_img_like</span><span class="p">(</span>
+                        <span class="n">data</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span> <span class="o">!=</span> <span class="n">background_value</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">mask_img</span> <span class="o">=</span> <span class="kc">None</span>
             <span class="n">parcellated</span> <span class="o">=</span> <span class="n">NiftiLabelsMasker</span><span class="p">(</span>
-                <span class="n">parc</span><span class="p">,</span> <span class="n">resampling_target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">resampling_target</span>
+                <span class="n">parc</span><span class="p">,</span> <span class="n">mask_img</span><span class="o">=</span><span class="n">mask_img</span><span class="p">,</span> <span class="n">resampling_target</span><span class="o">=</span><span class="kc">None</span>
             <span class="p">)</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_volumetric</span><span class="p">:</span>
                 <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">parc</span><span class="p">):</span>
                     <span class="n">parc</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">labeltable</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> \
                         <span class="bp">self</span><span class="o">.</span><span class="n">parcellation</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">labeltable</span><span class="o">.</span><span class="n">labels</span>
-            <span class="n">data</span> <span class="o">=</span> <span class="n">_gifti_to_array</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-            <span class="n">parcellated</span> <span class="o">=</span> <span class="n">vertices_to_parcels</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">parc</span><span class="p">)</span>
+            <span class="n">darr</span> <span class="o">=</span> <span class="n">_gifti_to_array</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">ignore_background_data</span> <span class="ow">and</span> <span class="n">background_value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">density</span><span class="p">,</span> <span class="o">=</span> <span class="n">_estimate_density</span><span class="p">((</span><span class="n">data</span><span class="p">,),</span> <span class="n">hemi</span><span class="o">=</span><span class="n">hemi</span><span class="p">)</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">resampling_target</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+                    <span class="n">mask_space</span> <span class="o">=</span> <span class="n">space</span>
+                <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">resampling_target</span> <span class="o">==</span> <span class="s1">&#39;parcellation&#39;</span><span class="p">:</span>
+                    <span class="n">mask_space</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">space</span>
+                <span class="n">nomedialwall</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">(</span>
+                    <span class="n">fetch_atlas</span><span class="p">(</span><span class="n">mask_space</span><span class="p">,</span> <span class="n">density</span><span class="p">)[</span><span class="s1">&#39;medial&#39;</span><span class="p">])</span>
+                <span class="n">background_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">darr</span><span class="p">[</span><span class="n">nomedialwall</span> <span class="o">==</span> <span class="mi">0</span><span class="p">])</span>
+            <span class="n">parcellated</span> <span class="o">=</span> <span class="n">vertices_to_parcels</span><span class="p">(</span>
+                <span class="n">darr</span><span class="p">,</span> <span class="n">parc</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="n">background_value</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">parcellated</span></div>
 
@@ -258,10 +297,12 @@
                                                       <span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">img</span></div>
 
-<div class="viewcode-block" id="Parcellater.fit_transform"><a class="viewcode-back" href="../../generated/neuromaps.parcellate.Parcellater.html#neuromaps.parcellate.Parcellater.fit_transform">[docs]</a>    <span class="k">def</span> <span class="nf">fit_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">space</span><span class="p">,</span> <span class="n">hemi</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Parcellater.fit_transform"><a class="viewcode-back" href="../../generated/neuromaps.parcellate.Parcellater.html#neuromaps.parcellate.Parcellater.fit_transform">[docs]</a>    <span class="k">def</span> <span class="nf">fit_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">space</span><span class="p">,</span> <span class="n">ignore_background_data</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                      <span class="n">background_value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">hemi</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Prepare and perform parcellation of `data`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">space</span><span class="p">,</span> <span class="n">hemi</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">space</span><span class="p">,</span> <span class="n">ignore_background_data</span><span class="p">,</span>
+                                    <span class="n">background_value</span><span class="p">,</span> <span class="n">hemi</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="nf">_check_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_fit&#39;</span><span class="p">):</span>

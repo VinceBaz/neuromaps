@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>neuromaps.parcellate.Parcellater &mdash; neuromaps 0+untagged.1.gb200395 documentation</title>
+  <title>neuromaps.parcellate.Parcellater &mdash; neuromaps 0+untagged.1.g54aebbb documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
@@ -37,7 +37,7 @@
             <img src="../_static/neuromaps_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0+untagged.1.gb200395
+                0+untagged.1.g54aebbb
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -128,7 +128,7 @@ assumed that <cite>parcellation</cite> is (L, R) hemisphere. Ignored if <cite>sp
 
 <dl class="py method">
 <dt class="sig sig-object py" id="neuromaps.parcellate.Parcellater.fit_transform">
-<span class="sig-name descname"><span class="pre">fit_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hemi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/neuromaps/parcellate.html#Parcellater.fit_transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#neuromaps.parcellate.Parcellater.fit_transform" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">fit_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_background_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hemi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/neuromaps/parcellate.html#Parcellater.fit_transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#neuromaps.parcellate.Parcellater.fit_transform" title="Permalink to this definition"></a></dt>
 <dd><p>Prepare and perform parcellation of <cite>data</cite></p>
 </dd></dl>
 
@@ -151,7 +151,7 @@ assumed that <cite>parcellation</cite> is (L, R) hemisphere. Ignored if <cite>sp
 
 <dl class="py method">
 <dt class="sig sig-object py" id="neuromaps.parcellate.Parcellater.transform">
-<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hemi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/neuromaps/parcellate.html#Parcellater.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#neuromaps.parcellate.Parcellater.transform" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_background_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hemi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/neuromaps/parcellate.html#Parcellater.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#neuromaps.parcellate.Parcellater.transform" title="Permalink to this definition"></a></dt>
 <dd><p>Applies parcellation to <cite>data</cite> in <cite>space</cite></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -162,6 +162,18 @@ assumed that <cite>parcellation</cite> is (L, R) hemisphere. Ignored if <cite>sp
 dataset then this specifies which hemisphere. If not specified it
 is assumed that <cite>data</cite> is (L, R) hemisphere. Ignored if <cite>space</cite> is
 ‘MNI152’. Default: None</p></li>
+<li><p><strong>ignore_background_data</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a>) – Specifies whether the background data values should be ignored
+when computing the average <cite>data</cite> within each parcel. If set to
+True and <cite>background_value</cite> is set to None, the background_value is
+estimated from the data: if there are NaNs in the data, the
+background value is set to NaN. Otherwise, it is estimated as
+the median of the values on the border of the images for
+volumetric images or as the median of the values within the medial
+wall for surface images. The background value can also be set
+manually using the <cite>background_value</cite> parameter. Default: False</p></li>
+<li><p><strong>background_value</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – Specifies the background value to ignore when computing the
+averages and when <cite>ignore_background_data</cite> is True.
+Default: None</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>

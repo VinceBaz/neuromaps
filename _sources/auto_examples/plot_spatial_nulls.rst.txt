@@ -66,7 +66,7 @@ dictionary will always be returned if multiple annotations match our query.)
  .. code-block:: none
 
     Downloading data from https://files.osf.io/v1/resources/4mw3a/providers/osfstorage/60c22953f3ce9401fa24e651 ...
-     ...done. (2 seconds, 0 min)
+     ...done. (1 seconds, 0 min)
     Neurosynth:  /home/runner/neuromaps-data/annotations/neurosynth/cogpc1/MNI152/source-neurosynth_desc-cogpc1_space-MNI152_res-2mm_feature.nii.gz
     Gene PC1:  ['/home/runner/neuromaps-data/annotations/abagen/genepc1/fsaverage/source-abagen_desc-genepc1_space-fsaverage_den-10k_hemi-L_feature.func.gii', '/home/runner/neuromaps-data/annotations/abagen/genepc1/fsaverage/source-abagen_desc-genepc1_space-fsaverage_den-10k_hemi-R_feature.func.gii']
 
@@ -106,9 +106,9 @@ The data returned will always be pre-loaded nibabel image instances:
  .. code-block:: none
 
     Downloading data from https://files.osf.io/v1/resources/4mw3a/providers/osfstorage/60b684c03a6df1020ed525f6 ...
-     ...done. (2 seconds, 0 min)
+     ...done. (1 seconds, 0 min)
     Extracting data from /home/runner/neuromaps-data/529deda7a30dc28b5106317477efbaf2/regfusion.tar.gz..... done.
-    (<nibabel.gifti.gifti.GiftiImage object at 0x7fc857fc5dd0>, <nibabel.gifti.gifti.GiftiImage object at 0x7fc857fe6ed0>) (<nibabel.gifti.gifti.GiftiImage object at 0x7fc86c195ad0>, <nibabel.gifti.gifti.GiftiImage object at 0x7fc884646dd0>)
+    (<nibabel.gifti.gifti.GiftiImage object at 0x7f7e39da9d10>, <nibabel.gifti.gifti.GiftiImage object at 0x7f7e38102410>) (<nibabel.gifti.gifti.GiftiImage object at 0x7f7e39e59690>, <nibabel.gifti.gifti.GiftiImage object at 0x7f7e38102490>)
 
 
 
@@ -221,7 +221,7 @@ null maps; they have (nearly) identical function signatures, so refer to the
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  9.906 seconds)
+   **Total running time of the script:** ( 0 minutes  7.440 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_spatial_nulls.py:
