@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brain maps and annotations &mdash; neuromaps 0+untagged.1.g54aebbb documentation</title>
+  <title>Brain maps and annotations &mdash; neuromaps 0+untagged.1.gb5c37bd documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
@@ -21,6 +21,7 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -37,7 +38,7 @@
             <img src="../_static/neuromaps_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0+untagged.1.g54aebbb
+                0+untagged.1.gb5c37bd
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -77,9 +78,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../usage.html">User guide</a> &raquo;</li>
-      <li>Brain maps and annotations</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../usage.html">User guide</a></li>
+      <li class="breadcrumb-item active">Brain maps and annotations</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -93,7 +94,7 @@
 <p>Beyond standard atlases, the <code class="docutils literal notranslate"><span class="pre">neuromaps</span></code> toolbox offers access to a
 repository of brain maps (which we frequently refer to as brain annotations).
 These annotations are spatial maps representing some feature of interest and
-are available in one of the four standard coordinate systems.</p>
+are available in at least one of the four standard coordinate systems.</p>
 <p>We have curated a set of brain annotations that we make available through a
 standard interface. You can search for available annotations using the
 <a class="reference internal" href="../generated/neuromaps.datasets.available_annotations.html#neuromaps.datasets.available_annotations" title="neuromaps.datasets.available_annotations"><code class="xref py py-func docutils literal notranslate"><span class="pre">neuromaps.datasets.available_annotations()</span></code></a> function:</p>
@@ -123,7 +124,8 @@ second entry in the tuple provides a brief description of what the map
 represents. (Because these descriptors are encoded directly in the filenames of
 the relevant maps we are somewhat limited in terms of space.) The last two
 entries in the tuple correspond to the coordinate system and density/resolution
-in which the annotations are provided.</p>
+in which the annotations are provided. More details on each annotation, as well
+as papers to cite if you use the data, exist on our <a class="reference external" href="https://github.com/netneurolab/neuromaps/wiki/Annotation-information">Wiki</a>.</p>
 <p>This function also accepts keyword arguments in case we want to narrow down the
 list of returned annotations:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">annotation</span> <span class="ow">in</span> <span class="n">available_annotations</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s1">&#39;abagen&#39;</span><span class="p">):</span>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fetching atlases and annotations &mdash; neuromaps 0+untagged.1.g54aebbb documentation</title>
+  <title>Fetching atlases and annotations &mdash; neuromaps 0+untagged.1.gb5c37bd documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
@@ -21,6 +21,7 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -37,7 +38,7 @@
             <img src="../_static/neuromaps_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0+untagged.1.g54aebbb
+                0+untagged.1.gb5c37bd
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -73,9 +74,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="index.html">Examples</a> &raquo;</li>
-      <li>Fetching atlases and annotations</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Examples</a></li>
+      <li class="breadcrumb-item active">Fetching atlases and annotations</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -106,7 +107,7 @@ function that can fetch any of the atlases provided with <code class="docutils l
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloading data from https://files.osf.io/v1/resources/4mw3a/providers/osfstorage/60b684b53a6df1021bd4df2d ...
- ...done. (2 seconds, 0 min)
+ ...done. (1 seconds, 0 min)
 Extracting data from /home/runner/neuromaps-data/ac53e497d7d6c6379ee7bd7bda6e0267/fsLR32k.tar.gz..... done.
 dict_keys([&#39;midthickness&#39;, &#39;inflated&#39;, &#39;veryinflated&#39;, &#39;sphere&#39;, &#39;medial&#39;, &#39;sulc&#39;, &#39;vaavg&#39;])
 </pre></div>
@@ -132,7 +133,7 @@ are returned by default via <code class="xref py py-func docutils literal notran
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Available annotations: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><a href="https://docs.python.org/3.6/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">annotations</span></a><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Available annotations: 72
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Available annotations: 78
 </pre></div>
 </div>
 <p>The <a class="reference internal" href="../generated/neuromaps.datasets.available_annotations.html#neuromaps.datasets.available_annotations" title="neuromaps.datasets.available_annotations"><code class="xref py py-func docutils literal notranslate"><span class="pre">available_annotations()</span></code></a> function accepts a number of keyword
@@ -192,9 +193,9 @@ brain (from the Allen Human Brain Atlas):</p>
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloading data from https://files.osf.io/v1/resources/4mw3a/providers/osfstorage/60c2290118f70b01fca797eb ...
- ...done. (2 seconds, 0 min)
+ ...done. (1 seconds, 0 min)
 Downloading data from https://files.osf.io/v1/resources/4mw3a/providers/osfstorage/60c228f5f3ce9401fa24e521 ...
- ...done. (2 seconds, 0 min)
+ ...done. (1 seconds, 0 min)
 [&#39;/home/runner/neuromaps-data/annotations/abagen/genepc1/fsaverage/source-abagen_desc-genepc1_space-fsaverage_den-10k_hemi-L_feature.func.gii&#39;, &#39;/home/runner/neuromaps-data/annotations/abagen/genepc1/fsaverage/source-abagen_desc-genepc1_space-fsaverage_den-10k_hemi-R_feature.func.gii&#39;]
 </pre></div>
 </div>
@@ -213,7 +214,7 @@ argument to the fetch call:</p>
 <p>And that’s it! This example provided a quick overview on how to fetch the
 various atlases and datasets provided with <code class="docutils literal notranslate"><span class="pre">neuromaps</span></code>. For more
 information please refer to the <a class="reference internal" href="../api.html#ref-datasets"><span class="std std-ref">API reference</span></a>.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  5.052 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.660 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-fetch-datasets-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/a04ac8d81d8fed9e456dd9e2eb4c4519/plot_fetch_datasets.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_fetch_datasets.py</span></code></a></p>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>neuromaps.datasets.annotations &mdash; neuromaps 0+untagged.1.g54aebbb documentation</title>
+  <title>neuromaps.datasets.annotations &mdash; neuromaps 0+untagged.1.gb5c37bd documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
@@ -20,6 +20,7 @@
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -34,7 +35,7 @@
             <img src="../../../_static/neuromaps_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0+untagged.1.g54aebbb
+                0+untagged.1.gb5c37bd
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -66,9 +67,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-      <li>neuromaps.datasets.annotations</li>
+      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">neuromaps.datasets.annotations</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -87,6 +88,8 @@
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
 
 <span class="kn">from</span> <span class="nn">nilearn.datasets.utils</span> <span class="kn">import</span> <span class="n">_fetch_file</span>
 
@@ -308,6 +311,16 @@
             <span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">dl_file</span><span class="p">,</span> <span class="n">fn</span><span class="p">)</span>
         <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">fn</span><span class="p">))</span>
 
+    <span class="c1"># warning for specific maps</span>
+    <span class="n">warn</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">dset</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;beliveau2017&#39;</span><span class="p">,</span>
+                                         <span class="n">dset</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;norgaard2021&#39;</span><span class="p">),</span>
+                           <span class="n">dset</span><span class="p">[</span><span class="s1">&#39;space&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;MNI152&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">dset</span> <span class="ow">in</span> <span class="n">info</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">warn</span><span class="p">):</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Data from beliveau2017 and norgaard2021 is best used in&#39;</span>
+                      <span class="s1">&#39; the provided fsaverage space &#39;</span>
+                      <span class="s1">&#39;(e.g. source=</span><span class="se">\&#39;</span><span class="s1">beliveau2017</span><span class="se">\&#39;</span><span class="s1">, space=</span><span class="se">\&#39;</span><span class="s1">fsaverage</span><span class="se">\&#39;</span><span class="s1">, &#39;</span>
+                      <span class="s1">&#39;den=</span><span class="se">\&#39;</span><span class="s1">164k</span><span class="se">\&#39;</span><span class="s1">). MNI152 maps should only be used for &#39;</span>
+                      <span class="s1">&#39;subcortical data.&#39;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">_groupby_match</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">return_single</span><span class="o">=</span><span class="n">return_single</span><span class="p">)</span></div>
 </pre></div>
 

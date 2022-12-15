@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>neuromaps.images.annot_to_gifti &mdash; neuromaps 0+untagged.1.g54aebbb documentation</title>
+  <title>neuromaps.images.annot_to_gifti &mdash; neuromaps 0+untagged.1.gb5c37bd documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
@@ -21,6 +21,7 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -37,7 +38,7 @@
             <img src="../_static/neuromaps_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0+untagged.1.g54aebbb
+                0+untagged.1.gb5c37bd
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -62,7 +63,10 @@
 <li class="toctree-l3"><a class="reference internal" href="neuromaps.images.interp_surface.html">neuromaps.images.interp_surface</a></li>
 <li class="toctree-l3"><a class="reference internal" href="neuromaps.images.vertex_areas.html">neuromaps.images.vertex_areas</a></li>
 <li class="toctree-l3"><a class="reference internal" href="neuromaps.images.relabel_gifti.html">neuromaps.images.relabel_gifti</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">neuromaps.images.annot_to_gifti</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">neuromaps.images.annot_to_gifti</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#neuromaps.images.annot_to_gifti"><code class="docutils literal notranslate"><span class="pre">annot_to_gifti()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="neuromaps.images.dlabel_to_gifti.html">neuromaps.images.dlabel_to_gifti</a></li>
 <li class="toctree-l3"><a class="reference internal" href="neuromaps.images.obj_to_gifti.html">neuromaps.images.obj_to_gifti</a></li>
 <li class="toctree-l3"><a class="reference internal" href="neuromaps.images.fssurf_to_gifti.html">neuromaps.images.fssurf_to_gifti</a></li>
@@ -93,9 +97,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../api.html">Reference API</a> &raquo;</li>
-      <li>neuromaps.images.annot_to_gifti</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">Reference API</a></li>
+      <li class="breadcrumb-item active">neuromaps.images.annot_to_gifti</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -113,7 +117,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>parcellation</strong> (<em>tuple of str</em><em> or </em><a class="reference external" href="https://docs.python.org/3.6/library/os.html#os.PathLike" title="(in Python v3.6)"><em>os.PathLike</em></a>) – Paths to surface annotation files (.annot)</p></li>
+<li><p><strong>parcellation</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#tuple" title="(in Python v3.6)"><em>tuple</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.6/library/os.html#os.PathLike" title="(in Python v3.6)"><em>os.PathLike</em></a>) – Paths to surface annotation files (.annot)</p></li>
 <li><p><strong>background</strong> (<em>list-of-str</em><em>, </em><em>optional</em>) – If provided, a list of IDs in <cite>parcellation</cite> that should be set to 0
 (the presumptive background value). Other IDs will be shifted so they
 are consecutive (i.e., 0–N). If not specified will use labels in

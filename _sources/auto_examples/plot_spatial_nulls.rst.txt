@@ -108,7 +108,7 @@ The data returned will always be pre-loaded nibabel image instances:
     Downloading data from https://files.osf.io/v1/resources/4mw3a/providers/osfstorage/60b684c03a6df1020ed525f6 ...
      ...done. (1 seconds, 0 min)
     Extracting data from /home/runner/neuromaps-data/529deda7a30dc28b5106317477efbaf2/regfusion.tar.gz..... done.
-    (<nibabel.gifti.gifti.GiftiImage object at 0x7f7e39da9d10>, <nibabel.gifti.gifti.GiftiImage object at 0x7f7e38102410>) (<nibabel.gifti.gifti.GiftiImage object at 0x7f7e39e59690>, <nibabel.gifti.gifti.GiftiImage object at 0x7f7e38102490>)
+    (<nibabel.gifti.gifti.GiftiImage object at 0x7f0793794f90>, <nibabel.gifti.gifti.GiftiImage object at 0x7f07952b1350>) (<nibabel.gifti.gifti.GiftiImage object at 0x7f07932f0e50>, <nibabel.gifti.gifti.GiftiImage object at 0x7f0795293390>)
 
 
 
@@ -221,7 +221,7 @@ null maps; they have (nearly) identical function signatures, so refer to the
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  7.440 seconds)
+   **Total running time of the script:** ( 0 minutes  7.454 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_spatial_nulls.py:

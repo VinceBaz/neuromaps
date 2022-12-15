@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Transformations between coordinate systems &mdash; neuromaps 0+untagged.1.g54aebbb documentation</title>
+  <title>Transformations between coordinate systems &mdash; neuromaps 0+untagged.1.gb5c37bd documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
@@ -21,6 +21,7 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -37,7 +38,7 @@
             <img src="../_static/neuromaps_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0+untagged.1.g54aebbb
+                0+untagged.1.gb5c37bd
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -86,9 +87,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../usage.html">User guide</a> &raquo;</li>
-      <li>Transformations between coordinate systems</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../usage.html">User guide</a></li>
+      <li class="breadcrumb-item active">Transformations between coordinate systems</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -137,6 +138,13 @@ accessed via the <code class="docutils literal notranslate"><span class="pre">.a
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">fsavg_lh</span><span class="o">.</span><span class="n">agg_data</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="go">(163842,)</span>
 </pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Partial volume effects (PVE) in PET images are increased when volumetric
+data is transformed to the surface, resulting in maps that are heavily
+biased by the underlying curvature of the surface. For this reason, it is
+generally not recommended to transform PET volumes to the surface.</p>
 </div>
 <p>Note that you can also transform between different resolutions within the
 MNI152 coordinate system:</p>

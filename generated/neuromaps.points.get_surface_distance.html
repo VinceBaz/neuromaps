@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>neuromaps.points.get_surface_distance &mdash; neuromaps 0+untagged.1.g54aebbb documentation</title>
+  <title>neuromaps.points.get_surface_distance &mdash; neuromaps 0+untagged.1.gb5c37bd documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
@@ -21,6 +21,7 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -37,7 +38,7 @@
             <img src="../_static/neuromaps_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0+untagged.1.g54aebbb
+                0+untagged.1.gb5c37bd
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -61,7 +62,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../api.html#module-neuromaps.plotting"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neuromaps.plotting</span></code> - Plotting functions</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api.html#module-neuromaps.points"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neuromaps.points</span></code> - Triangle mesh utilites</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="neuromaps.points.make_surf_graph.html">neuromaps.points.make_surf_graph</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">neuromaps.points.get_surface_distance</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">neuromaps.points.get_surface_distance</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#neuromaps.points.get_surface_distance"><code class="docutils literal notranslate"><span class="pre">get_surface_distance()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../api.html#module-neuromaps.resampling"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neuromaps.resampling</span></code> - Resampling workflows</a></li>
@@ -84,9 +88,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../api.html">Reference API</a> &raquo;</li>
-      <li>neuromaps.points.get_surface_distance</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">Reference API</a></li>
+      <li class="breadcrumb-item active">neuromaps.points.get_surface_distance</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -113,10 +117,10 @@ constituent vertices in two parcels. Default: None</p></li>
 (0 indicates medial wall). If provided will prohibit calculation of
 surface distance along the medial wall. Superseded by <cite>medial_labels</cite>
 if both are provided. Default: None</p></li>
-<li><p><strong>medial_labels</strong> (<em>list of str</em><em>, </em><em>optional</em>) – List of parcel names that comprise the medial wall and through which
+<li><p><strong>medial_labels</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#list" title="(in Python v3.6)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a><em>, </em><em>optional</em>) – List of parcel names that comprise the medial wall and through which
 travel should be disallowed. Only valid if <cite>parcellation</cite> is provided;
 supersedes <cite>medial</cite> if both are provided. Default: None</p></li>
-<li><p><strong>drop</strong> (<em>list of str</em><em>, </em><em>optional</em>) – List of parcel names that should be dropped from the final distance
+<li><p><strong>drop</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#list" title="(in Python v3.6)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a><em>, </em><em>optional</em>) – List of parcel names that should be dropped from the final distance
 matrix (if <cite>parcellation</cite> is provided). If not specified, will ignore
 parcels commonly used to reference the medial wall (e.g., ‘unknown’,
 ‘corpuscallosum’, ‘???’, ‘Background+FreeSurfer_Defined_Medial_Wall’).
