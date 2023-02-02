@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>neuromaps.datasets.annotations &mdash; neuromaps 0+untagged.1.gb5c37bd documentation</title>
+  <title>neuromaps.datasets.annotations &mdash; neuromaps 0+untagged.1.g76ef873 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
@@ -35,7 +35,7 @@
             <img src="../../../_static/neuromaps_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0+untagged.1.gb5c37bd
+                0+untagged.1.g76ef873
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -102,7 +102,7 @@
 
 
 <span class="k">def</span> <span class="nf">_groupby_match</span><span class="p">(</span><span class="n">fnames</span><span class="p">,</span> <span class="n">return_single</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;&quot;</span>
 <span class="sd">    Groups files in `fnames` by (source, desc, space, res/den)</span>
 
 <span class="sd">    Parameters</span>
@@ -133,7 +133,7 @@
 
 
 <span class="k">def</span> <span class="nf">_match_annot</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Matches datasets in `info` to relevant keys</span>
 
 <span class="sd">    Parameters</span>
@@ -190,7 +190,7 @@
 <div class="viewcode-block" id="available_annotations"><a class="viewcode-back" href="../../../generated/neuromaps.datasets.available_annotations.html#neuromaps.datasets.available_annotations">[docs]</a><span class="k">def</span> <span class="nf">available_annotations</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">den</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                           <span class="n">res</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">hemi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                           <span class="n">return_restricted</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Lists datasets available via :func:`~.fetch_annotation`</span>
 
 <span class="sd">    Parameters</span>
@@ -217,7 +217,7 @@
 
 
 <div class="viewcode-block" id="available_tags"><a class="viewcode-back" href="../../../generated/neuromaps.datasets.available_tags.html#neuromaps.datasets.available_tags">[docs]</a><span class="k">def</span> <span class="nf">available_tags</span><span class="p">(</span><span class="n">return_restricted</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns available tags for querying annotations</span>
 
 <span class="sd">    Parameters</span>
@@ -243,7 +243,7 @@
 <div class="viewcode-block" id="fetch_annotation"><a class="viewcode-back" href="../../../generated/neuromaps.datasets.fetch_annotation.html#neuromaps.datasets.fetch_annotation">[docs]</a><span class="k">def</span> <span class="nf">fetch_annotation</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">den</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">res</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                      <span class="n">hemi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">return_single</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                      <span class="n">token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">data_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Downloads files for brain annotations matching requested variables</span>
 
 <span class="sd">    Parameters</span>

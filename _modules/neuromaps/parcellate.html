@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>neuromaps.parcellate &mdash; neuromaps 0+untagged.1.gb5c37bd documentation</title>
+  <title>neuromaps.parcellate &mdash; neuromaps 0+untagged.1.g76ef873 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
@@ -35,7 +35,7 @@
             <img src="../../_static/neuromaps_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0+untagged.1.gb5c37bd
+                0+untagged.1.g76ef873
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -98,19 +98,19 @@
 
 
 <span class="k">def</span> <span class="nf">_gifti_to_array</span><span class="p">(</span><span class="n">gifti</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Converts tuple of `gifti` to numpy array</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Converts tuple of `gifti` to numpy array</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">load_gifti</span><span class="p">(</span><span class="n">img</span><span class="p">)</span><span class="o">.</span><span class="n">agg_data</span><span class="p">()</span> <span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">gifti</span><span class="p">])</span>
 
 
 <span class="k">def</span> <span class="nf">_array_to_gifti</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Converts numpy `array` to tuple of gifti images</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Converts numpy `array` to tuple of gifti images</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">construct_shape_gii</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="k">for</span> <span class="n">arr</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 
 
 <div class="viewcode-block" id="Parcellater"><a class="viewcode-back" href="../../generated/neuromaps.parcellate.Parcellater.html#neuromaps.parcellate.Parcellater">[docs]</a><span class="k">class</span> <span class="nc">Parcellater</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Class for parcellating arbitrary volumetric / surface data</span>
 
 <span class="sd">    Parameters</span>
@@ -161,7 +161,7 @@
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Invalid value for `space`: </span><span class="si">{</span><span class="n">space</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Parcellater.fit"><a class="viewcode-back" href="../../generated/neuromaps.parcellate.Parcellater.html#neuromaps.parcellate.Parcellater.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Prepare parcellation for data extraction</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Prepare parcellation for data extraction</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_volumetric</span><span class="p">:</span>
@@ -173,7 +173,7 @@
 
 <div class="viewcode-block" id="Parcellater.transform"><a class="viewcode-back" href="../../generated/neuromaps.parcellate.Parcellater.html#neuromaps.parcellate.Parcellater.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">space</span><span class="p">,</span> <span class="n">ignore_background_data</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                   <span class="n">background_value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">hemi</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Applies parcellation to `data` in `space`</span>
 
 <span class="sd">        Parameters</span>
@@ -275,7 +275,7 @@
         <span class="k">return</span> <span class="n">parcellated</span></div>
 
 <div class="viewcode-block" id="Parcellater.inverse_transform"><a class="viewcode-back" href="../../generated/neuromaps.parcellate.Parcellater.html#neuromaps.parcellate.Parcellater.inverse_transform">[docs]</a>    <span class="k">def</span> <span class="nf">inverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Project `data` to space + density of parcellation</span>
 
 <span class="sd">        Parameters</span>
@@ -300,7 +300,7 @@
 
 <div class="viewcode-block" id="Parcellater.fit_transform"><a class="viewcode-back" href="../../generated/neuromaps.parcellate.Parcellater.html#neuromaps.parcellate.Parcellater.fit_transform">[docs]</a>    <span class="k">def</span> <span class="nf">fit_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">space</span><span class="p">,</span> <span class="n">ignore_background_data</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                       <span class="n">background_value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">hemi</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Prepare and perform parcellation of `data`</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Prepare and perform parcellation of `data`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">space</span><span class="p">,</span> <span class="n">ignore_background_data</span><span class="p">,</span>
                                     <span class="n">background_value</span><span class="p">,</span> <span class="n">hemi</span><span class="p">)</span></div>

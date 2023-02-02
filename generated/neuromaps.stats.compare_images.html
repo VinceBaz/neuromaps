@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>neuromaps.stats.compare_images &mdash; neuromaps 0+untagged.1.gb5c37bd documentation</title>
+  <title>neuromaps.stats.compare_images &mdash; neuromaps 0+untagged.1.g76ef873 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
@@ -38,7 +38,7 @@
             <img src="../_static/neuromaps_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0+untagged.1.gb5c37bd
+                0+untagged.1.g76ef873
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -121,9 +121,10 @@ single value (the similarity metric). Default: ‘pearsonr’</p></li>
 <cite>trg</cite> data. Default: True</p></li>
 <li><p><strong>nulls</strong> (<em>array_like</em><em>, </em><em>optional</em>) – Null data for <cite>src</cite> to use in generating a non-parametric p-value.
 If not specified a parameteric p-value is generated. Default: None</p></li>
-<li><p><strong>nan_policy</strong> (<em>{'propagate'</em><em>, </em><em>'raise'</em><em>, </em><em>'omit'}</em><em>, </em><em>optional</em>) – Defines how to handle when input contains nan. ‘propagate’ returns nan,
-‘raise’ throws an error, ‘omit’ performs the calculations ignoring nan
-values. Default: ‘omit’</p></li>
+<li><p><strong>nan_policy</strong> (<em>{'propagate'</em><em>, </em><em>'raise'</em><em>, </em><em>'omit'}</em><em>, </em><em>optional</em>) – Defines how to handle when input contains nan. ‘propagate’ propagates
+the nan values to the callable metric (will return nan if the metric
+is <cite>spearmanr</cite> <cite>or pearsonr</cite>), ‘raise’ throws an error, ‘omit’ performs
+the calculations ignoring nan values. Default: ‘omit’</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>

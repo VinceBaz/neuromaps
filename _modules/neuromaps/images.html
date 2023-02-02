@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>neuromaps.images &mdash; neuromaps 0+untagged.1.gb5c37bd documentation</title>
+  <title>neuromaps.images &mdash; neuromaps 0+untagged.1.g76ef873 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
@@ -35,7 +35,7 @@
             <img src="../../_static/neuromaps_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0+untagged.1.gb5c37bd
+                0+untagged.1.g76ef873
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -101,7 +101,7 @@
 
 
 <span class="k">def</span> <span class="nf">construct_surf_gii</span><span class="p">(</span><span class="n">vert</span><span class="p">,</span> <span class="n">tri</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Constructs surface gifti image from `vert` and `tri`</span>
 
 <span class="sd">    Parameters</span>
@@ -129,7 +129,7 @@
 
 <span class="k">def</span> <span class="nf">construct_shape_gii</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">intent</span><span class="o">=</span><span class="s1">&#39;NIFTI_INTENT_SHAPE&#39;</span><span class="p">,</span>
                         <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Constructs shape gifti image from `data`</span>
 
 <span class="sd">    Parameters</span>
@@ -176,7 +176,7 @@
 
 
 <span class="k">def</span> <span class="nf">fix_coordsys</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Sets {xform,data}space of coordsys for GIFTI image `fn` to `val`</span>
 
 <span class="sd">    Parameters</span>
@@ -199,7 +199,7 @@
 
 
 <div class="viewcode-block" id="load_nifti"><a class="viewcode-back" href="../../generated/neuromaps.images.load_nifti.html#neuromaps.images.load_nifti">[docs]</a><span class="k">def</span> <span class="nf">load_nifti</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Loads nifti file `img`. If `img` is already a loaded (i.e. is a</span>
 <span class="sd">    nib.Nifti1Image object), it is returned as-is.</span>
 
@@ -225,7 +225,7 @@
 
 
 <div class="viewcode-block" id="load_gifti"><a class="viewcode-back" href="../../generated/neuromaps.images.load_gifti.html#neuromaps.images.load_gifti">[docs]</a><span class="k">def</span> <span class="nf">load_gifti</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Loads gifti file `img`</span>
 
 <span class="sd">    Will try to gunzip `img` if gzip is detected, and will pass pre-loaded</span>
@@ -259,7 +259,7 @@
 
 
 <span class="k">def</span> <span class="nf">load_data</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Small utility function to load and stack `data` images (gifti / nifti) into</span>
 <span class="sd">    numpy arrays.</span>
 
@@ -306,7 +306,7 @@
 
 
 <div class="viewcode-block" id="obj_to_gifti"><a class="viewcode-back" href="../../generated/neuromaps.images.obj_to_gifti.html#neuromaps.images.obj_to_gifti">[docs]</a><span class="k">def</span> <span class="nf">obj_to_gifti</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">fn</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Converts CIVET `obj` surface file to GIFTI format</span>
 
 <span class="sd">    Parameters</span>
@@ -337,7 +337,7 @@
 
 
 <div class="viewcode-block" id="fssurf_to_gifti"><a class="viewcode-back" href="../../generated/neuromaps.images.fssurf_to_gifti.html#neuromaps.images.fssurf_to_gifti">[docs]</a><span class="k">def</span> <span class="nf">fssurf_to_gifti</span><span class="p">(</span><span class="n">surf</span><span class="p">,</span> <span class="n">fn</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Converts FreeSurfer `surf` surface file to GIFTI format</span>
 
 <span class="sd">    Parameters</span>
@@ -364,7 +364,7 @@
 
 
 <div class="viewcode-block" id="fsmorph_to_gifti"><a class="viewcode-back" href="../../generated/neuromaps.images.fsmorph_to_gifti.html#neuromaps.images.fsmorph_to_gifti">[docs]</a><span class="k">def</span> <span class="nf">fsmorph_to_gifti</span><span class="p">(</span><span class="n">morph</span><span class="p">,</span> <span class="n">fn</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">modifier</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Converts FreeSurfer `morph` data file to GIFTI format</span>
 
 <span class="sd">    Parameters</span>
@@ -396,7 +396,7 @@
 
 
 <div class="viewcode-block" id="interp_surface"><a class="viewcode-back" href="../../generated/neuromaps.images.interp_surface.html#neuromaps.images.interp_surface">[docs]</a><span class="k">def</span> <span class="nf">interp_surface</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">src</span><span class="p">,</span> <span class="n">trg</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Interpolate `data` on `src` surface to `trg` surface</span>
 
 <span class="sd">    Parameters</span>
@@ -430,7 +430,7 @@
 
 
 <div class="viewcode-block" id="vertex_areas"><a class="viewcode-back" href="../../generated/neuromaps.images.vertex_areas.html#neuromaps.images.vertex_areas">[docs]</a><span class="k">def</span> <span class="nf">vertex_areas</span><span class="p">(</span><span class="n">surface</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates vertex areas from `surface` file</span>
 
 <span class="sd">    Vertex area is calculated as the sum of 1/3 the area of each triangle in</span>
@@ -458,7 +458,7 @@
 
 
 <div class="viewcode-block" id="average_surfaces"><a class="viewcode-back" href="../../generated/neuromaps.images.average_surfaces.html#neuromaps.images.average_surfaces">[docs]</a><span class="k">def</span> <span class="nf">average_surfaces</span><span class="p">(</span><span class="o">*</span><span class="n">surfs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generates average surface from input `surfs`</span>
 
 <span class="sd">    Parameters</span>
@@ -489,7 +489,7 @@
 
 
 <span class="k">def</span> <span class="nf">_relabel</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">minval</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">bgval</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Relabels `labels` so that they&#39;re consecutive</span>
 
 <span class="sd">    Parameters</span>
@@ -516,7 +516,7 @@
 
 
 <div class="viewcode-block" id="relabel_gifti"><a class="viewcode-back" href="../../generated/neuromaps.images.relabel_gifti.html#neuromaps.images.relabel_gifti">[docs]</a><span class="k">def</span> <span class="nf">relabel_gifti</span><span class="p">(</span><span class="n">parcellation</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Updates GIFTI images so label IDs are consecutive across hemispheres</span>
 
 <span class="sd">    Parameters</span>
@@ -586,7 +586,7 @@
 
 
 <div class="viewcode-block" id="annot_to_gifti"><a class="viewcode-back" href="../../generated/neuromaps.images.annot_to_gifti.html#neuromaps.images.annot_to_gifti">[docs]</a><span class="k">def</span> <span class="nf">annot_to_gifti</span><span class="p">(</span><span class="n">parcellation</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Converts FreeSurfer-style annotation `parcellation` files to GIFTI images</span>
 
 <span class="sd">    Parameters</span>
@@ -627,7 +627,7 @@
 
 
 <div class="viewcode-block" id="dlabel_to_gifti"><a class="viewcode-back" href="../../generated/neuromaps.images.dlabel_to_gifti.html#neuromaps.images.dlabel_to_gifti">[docs]</a><span class="k">def</span> <span class="nf">dlabel_to_gifti</span><span class="p">(</span><span class="n">parcellation</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Converts CIFTI dlabel file to GIFTI images</span>
 
 <span class="sd">    Parameters</span>
@@ -674,7 +674,7 @@
 
 
 <span class="k">def</span> <span class="nf">minc_to_nifti</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">fn</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Converts MINC `img` to NIfTI format (and re-orients to RAS)</span>
 
 <span class="sd">    Parameters</span>

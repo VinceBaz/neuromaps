@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>neuromaps.datasets.atlases &mdash; neuromaps 0+untagged.1.gb5c37bd documentation</title>
+  <title>neuromaps.datasets.atlases &mdash; neuromaps 0+untagged.1.g76ef873 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
@@ -35,7 +35,7 @@
             <img src="../../../_static/neuromaps_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0+untagged.1.gb5c37bd
+                0+untagged.1.g76ef873
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -135,7 +135,7 @@
 
 
 <span class="k">def</span> <span class="nf">_sanitize_atlas</span><span class="p">(</span><span class="n">atlas</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Checks for aliases of `atlas` and confirms valid input</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Checks for aliases of `atlas` and confirms valid input</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">atlas</span> <span class="o">=</span> <span class="n">ALIAS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">atlas</span><span class="p">,</span> <span class="n">atlas</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">atlas</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">DENSITIES</span><span class="p">:</span>
@@ -144,7 +144,7 @@
 
 
 <span class="k">def</span> <span class="nf">_bunch_outputs</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">surface</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Groups `values` together (L/R) if `surface` and zips with `keys`</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Groups `values` together (L/R) if `surface` and zips with `keys`</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">surface</span><span class="p">:</span>
         <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="n">SURFACE</span><span class="p">(</span><span class="o">*</span><span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">),</span> <span class="mi">2</span><span class="p">)]</span>
@@ -152,7 +152,7 @@
 
 
 <span class="k">def</span> <span class="nf">_fetch_atlas</span><span class="p">(</span><span class="n">atlas</span><span class="p">,</span> <span class="n">density</span><span class="p">,</span> <span class="n">keys</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">data_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Helper function to get requested `atlas`</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Helper function to get requested `atlas`</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">atlas</span> <span class="o">=</span> <span class="n">_sanitize_atlas</span><span class="p">(</span><span class="n">atlas</span><span class="p">)</span>
@@ -224,13 +224,13 @@
 <span class="s2">----------</span>
 <span class="s2">density : {{&#39;</span><span class="si">{densities}</span><span class="s2">&#39;}}, optional</span>
 <span class="s2">    Density of CIVET atlas to fetch. Default: &#39;41k&#39;</span>
-<span class="si">{url}</span><span class="s2"></span>
-<span class="si">{data_dir}</span><span class="s2"></span>
-<span class="si">{verbose}</span><span class="s2"></span>
+<span class="si">{url}</span>
+<span class="si">{data_dir}</span>
+<span class="si">{verbose}</span>
 
 <span class="s2">Returns</span>
 <span class="s2">-------</span>
-<span class="si">{surfatlas}</span><span class="s2"></span>
+<span class="si">{surfatlas}</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">_atlas_docs</span><span class="p">,</span> <span class="n">densities</span><span class="o">=</span><span class="s2">&quot;&#39;, &#39;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DENSITIES</span><span class="p">[</span><span class="s1">&#39;civet&#39;</span><span class="p">]))</span>
 
 
@@ -248,13 +248,13 @@
 <span class="s2">----------</span>
 <span class="s2">density : {{&#39;</span><span class="si">{densities}</span><span class="s2">&#39;}}, optional</span>
 <span class="s2">    Density of fsaverage atlas to fetch. Default: &#39;41k&#39;</span>
-<span class="si">{url}</span><span class="s2"></span>
-<span class="si">{data_dir}</span><span class="s2"></span>
-<span class="si">{verbose}</span><span class="s2"></span>
+<span class="si">{url}</span>
+<span class="si">{data_dir}</span>
+<span class="si">{verbose}</span>
 
 <span class="s2">Returns</span>
 <span class="s2">-------</span>
-<span class="si">{surfatlas}</span><span class="s2"></span>
+<span class="si">{surfatlas}</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">_atlas_docs</span><span class="p">,</span> <span class="n">densities</span><span class="o">=</span><span class="s2">&quot;&#39;, &#39;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DENSITIES</span><span class="p">[</span><span class="s1">&#39;fsaverage&#39;</span><span class="p">]))</span>
 
 
@@ -274,13 +274,13 @@
 <span class="s2">----------</span>
 <span class="s2">density : {{&#39;</span><span class="si">{densities}</span><span class="s2">&#39;}}, optional</span>
 <span class="s2">    Density of fsLR atlas to fetch. Default: &#39;32k&#39;</span>
-<span class="si">{url}</span><span class="s2"></span>
-<span class="si">{data_dir}</span><span class="s2"></span>
-<span class="si">{verbose}</span><span class="s2"></span>
+<span class="si">{url}</span>
+<span class="si">{data_dir}</span>
+<span class="si">{verbose}</span>
 
 <span class="s2">Returns</span>
 <span class="s2">-------</span>
-<span class="si">{surfatlas}</span><span class="s2"></span>
+<span class="si">{surfatlas}</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">_atlas_docs</span><span class="p">,</span> <span class="n">densities</span><span class="o">=</span><span class="s2">&quot;&#39;, &#39;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DENSITIES</span><span class="p">[</span><span class="s1">&#39;fsLR&#39;</span><span class="p">]))</span>
 
 
@@ -302,13 +302,13 @@
 <span class="s2">----------</span>
 <span class="s2">density : {{&#39;</span><span class="si">{densities}</span><span class="s2">&#39;}}, optional</span>
 <span class="s2">    Resolution of MNI152 atlas to fetch. Default: &#39;1mm&#39;</span>
-<span class="si">{url}</span><span class="s2"></span>
-<span class="si">{data_dir}</span><span class="s2"></span>
-<span class="si">{verbose}</span><span class="s2"></span>
+<span class="si">{url}</span>
+<span class="si">{data_dir}</span>
+<span class="si">{verbose}</span>
 
 <span class="s2">Returns</span>
 <span class="s2">-------</span>
-<span class="si">{genericatlas}</span><span class="s2"></span>
+<span class="si">{genericatlas}</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">_atlas_docs</span><span class="p">,</span> <span class="n">densities</span><span class="o">=</span><span class="s2">&quot;&#39;, &#39;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DENSITIES</span><span class="p">[</span><span class="s1">&#39;MNI152&#39;</span><span class="p">]))</span>
 
 
@@ -352,9 +352,9 @@
 <span class="s2">----------</span>
 <span class="s2">atlas : {{&#39;civet&#39;, &#39;fsaverage&#39;, &#39;fsLR&#39;}}</span>
 <span class="s2">    Atlas to fetch</span>
-<span class="si">{url}</span><span class="s2"></span>
-<span class="si">{data_dir}</span><span class="s2"></span>
-<span class="si">{verbose}</span><span class="s2"></span>
+<span class="si">{url}</span>
+<span class="si">{data_dir}</span>
+<span class="si">{verbose}</span>
 
 <span class="s2">Returns</span>
 <span class="s2">-------</span>
@@ -378,13 +378,13 @@
 <span class="s2">    Atlas to fetch</span>
 <span class="s2">density : str</span>
 <span class="s2">    Density (or resolution) of `atlas`. Must be valid for provided `atlas`</span>
-<span class="si">{url}</span><span class="s2"></span>
-<span class="si">{data_dir}</span><span class="s2"></span>
-<span class="si">{verbose}</span><span class="s2"></span>
+<span class="si">{url}</span>
+<span class="si">{data_dir}</span>
+<span class="si">{verbose}</span>
 
 <span class="s2">Returns</span>
 <span class="s2">-------</span>
-<span class="si">{genericatlas}</span><span class="s2"></span>
+<span class="si">{genericatlas}</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">_atlas_docs</span><span class="p">,</span> <span class="n">atlases</span><span class="o">=</span><span class="s2">&quot;&#39;, &#39;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DENSITIES</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
 
 
@@ -407,8 +407,8 @@
 
 <span class="s2">Parameters</span>
 <span class="s2">----------</span>
-<span class="si">{data_dir}</span><span class="s2"></span>
-<span class="si">{verbose}</span><span class="s2"></span>
+<span class="si">{data_dir}</span>
+<span class="si">{verbose}</span>
 
 <span class="s2">Returns</span>
 <span class="s2">-------</span>
@@ -433,7 +433,7 @@
 <span class="s2">----------</span>
 <span class="s2">atlas : str</span>
 <span class="s2">    Atlas for which filepath should be returned</span>
-<span class="si">{data_dir}</span><span class="s2"></span>
+<span class="si">{data_dir}</span>
 
 <span class="s2">Returns</span>
 <span class="s2">-------</span>

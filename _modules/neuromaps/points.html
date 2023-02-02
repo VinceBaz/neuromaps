@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>neuromaps.points &mdash; neuromaps 0+untagged.1.gb5c37bd documentation</title>
+  <title>neuromaps.points &mdash; neuromaps 0+untagged.1.g76ef873 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
@@ -35,7 +35,7 @@
             <img src="../../_static/neuromaps_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0+untagged.1.gb5c37bd
+                0+untagged.1.g76ef873
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -92,7 +92,7 @@
 
 
 <span class="k">def</span> <span class="nf">point_in_triangle</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="n">triangle</span><span class="p">,</span> <span class="n">return_pdist</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Checks whether `point` falls inside `triangle`</span>
 
 <span class="sd">    Parameters</span>
@@ -136,7 +136,7 @@
 
 
 <span class="k">def</span> <span class="nf">which_triangle</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="n">triangles</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Determines which of `triangles` the provided `point` falls inside</span>
 
 <span class="sd">    Parameters</span>
@@ -163,7 +163,7 @@
 
 
 <span class="k">def</span> <span class="nf">_get_edges</span><span class="p">(</span><span class="n">faces</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Gets set of edges from `faces`</span>
 
 <span class="sd">    Parameters</span>
@@ -184,7 +184,7 @@
 
 
 <span class="k">def</span> <span class="nf">get_shared_triangles</span><span class="p">(</span><span class="n">faces</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns dictionary of triangles sharing edges from `faces`</span>
 
 <span class="sd">    Parameters</span>
@@ -250,7 +250,7 @@
 
 
 <span class="k">def</span> <span class="nf">get_direct_edges</span><span class="p">(</span><span class="n">vertices</span><span class="p">,</span> <span class="n">faces</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Gets (unique) direct edges and weights in mesh describes by inputs.</span>
 
 <span class="sd">    Parameters</span>
@@ -274,7 +274,7 @@
 
 
 <span class="k">def</span> <span class="nf">get_indirect_edges</span><span class="p">(</span><span class="n">vertices</span><span class="p">,</span> <span class="n">faces</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Gets indirect edges and weights in mesh described by inputs</span>
 
 <span class="sd">    Indirect edges are between two vertices that participate in faces sharing</span>
@@ -328,7 +328,7 @@
 
 
 <div class="viewcode-block" id="make_surf_graph"><a class="viewcode-back" href="../../generated/neuromaps.points.make_surf_graph.html#neuromaps.points.make_surf_graph">[docs]</a><span class="k">def</span> <span class="nf">make_surf_graph</span><span class="p">(</span><span class="n">vertices</span><span class="p">,</span> <span class="n">faces</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Constructs adjacency graph from `surf`.</span>
 
 <span class="sd">    Parameters</span>
@@ -374,7 +374,7 @@
 
 
 <span class="k">def</span> <span class="nf">_get_graph_distance</span><span class="p">(</span><span class="n">vertex</span><span class="p">,</span> <span class="n">graph</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Gets surface distance of `vertex` to all other vertices in `graph`</span>
 
 <span class="sd">    Parameters</span>
@@ -406,7 +406,7 @@
 
 <div class="viewcode-block" id="get_surface_distance"><a class="viewcode-back" href="../../generated/neuromaps.points.get_surface_distance.html#neuromaps.points.get_surface_distance">[docs]</a><span class="k">def</span> <span class="nf">get_surface_distance</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">parcellation</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">medial</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                          <span class="n">medial_labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_proc</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates surface distance for vertices in `surface`</span>
 
 <span class="sd">    Parameters</span>
@@ -483,7 +483,7 @@
 
 
 <span class="k">def</span> <span class="nf">_geodesic_parcel_centroid</span><span class="p">(</span><span class="n">vertices</span><span class="p">,</span> <span class="n">faces</span><span class="p">,</span> <span class="n">inds</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates parcel centroids based on surface distance</span>
 
 <span class="sd">    Parameters</span>

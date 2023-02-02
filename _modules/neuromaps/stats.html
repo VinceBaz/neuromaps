@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>neuromaps.stats &mdash; neuromaps 0+untagged.1.gb5c37bd documentation</title>
+  <title>neuromaps.stats &mdash; neuromaps 0+untagged.1.g76ef873 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
@@ -35,7 +35,7 @@
             <img src="../../_static/neuromaps_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0+untagged.1.gb5c37bd
+                0+untagged.1.g76ef873
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -99,7 +99,7 @@
 
 <div class="viewcode-block" id="compare_images"><a class="viewcode-back" href="../../generated/neuromaps.stats.compare_images.html#neuromaps.stats.compare_images">[docs]</a><span class="k">def</span> <span class="nf">compare_images</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">trg</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;pearsonr&#39;</span><span class="p">,</span> <span class="n">ignore_zero</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">nulls</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                    <span class="n">nan_policy</span><span class="o">=</span><span class="s1">&#39;omit&#39;</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compares images `src` and `trg`</span>
 
 <span class="sd">    If `src` and `trg` represent data from multiple hemispheres the data are</span>
@@ -121,9 +121,10 @@
 <span class="sd">        Null data for `src` to use in generating a non-parametric p-value.</span>
 <span class="sd">        If not specified a parameteric p-value is generated. Default: None</span>
 <span class="sd">    nan_policy : {&#39;propagate&#39;, &#39;raise&#39;, &#39;omit&#39;}, optional</span>
-<span class="sd">        Defines how to handle when input contains nan. &#39;propagate&#39; returns nan,</span>
-<span class="sd">        &#39;raise&#39; throws an error, &#39;omit&#39; performs the calculations ignoring nan</span>
-<span class="sd">        values. Default: &#39;omit&#39;</span>
+<span class="sd">        Defines how to handle when input contains nan. &#39;propagate&#39; propagates</span>
+<span class="sd">        the nan values to the callable metric (will return nan if the metric</span>
+<span class="sd">        is `spearmanr` `or pearsonr`), &#39;raise&#39; throws an error, &#39;omit&#39; performs</span>
+<span class="sd">        the calculations ignoring nan values. Default: &#39;omit&#39;</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -144,15 +145,20 @@
 
     <span class="n">srcdata</span><span class="p">,</span> <span class="n">trgdata</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">(</span><span class="n">src</span><span class="p">),</span> <span class="n">load_data</span><span class="p">(</span><span class="n">trg</span><span class="p">)</span>
 
-    <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">srcdata</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+    <span class="c1"># drop NaNs (if nan_policy==`omit`) and zeros (if ignore_zero=True)</span>
+    <span class="n">zeromask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">srcdata</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">ignore_zero</span><span class="p">:</span>
-        <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">srcdata</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">trgdata</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-
-    <span class="c1"># drop NaNs</span>
+        <span class="n">zeromask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">srcdata</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+                                 <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">trgdata</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
     <span class="n">nanmask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">srcdata</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">trgdata</span><span class="p">))</span>
-    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">nanmask</span><span class="p">)</span> <span class="ow">and</span> <span class="n">nan_policy</span> <span class="o">==</span> <span class="s1">&#39;raise&#39;</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Inputs contain nan&#39;</span><span class="p">)</span>
-    <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">logical_not</span><span class="p">(</span><span class="n">mask</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_not</span><span class="p">(</span><span class="n">nanmask</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">nan_policy</span> <span class="o">==</span> <span class="s1">&#39;raise&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">nanmask</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Inputs contain nan&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">nan_policy</span> <span class="o">==</span> <span class="s1">&#39;omit&#39;</span><span class="p">:</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">logical_not</span><span class="p">(</span><span class="n">zeromask</span><span class="p">),</span>
+                              <span class="n">np</span><span class="o">.</span><span class="n">logical_not</span><span class="p">(</span><span class="n">nanmask</span><span class="p">))</span>
+    <span class="k">elif</span> <span class="n">nan_policy</span> <span class="o">==</span> <span class="s1">&#39;propagate&#39;</span><span class="p">:</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_not</span><span class="p">(</span><span class="n">zeromask</span><span class="p">)</span>
     <span class="n">srcdata</span><span class="p">,</span> <span class="n">trgdata</span> <span class="o">=</span> <span class="n">srcdata</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="n">trgdata</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
 
     <span class="k">if</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">methods</span><span class="p">:</span>
@@ -172,7 +178,7 @@
 
 <div class="viewcode-block" id="permtest_metric"><a class="viewcode-back" href="../../generated/neuromaps.stats.permtest_metric.html#neuromaps.stats.permtest_metric">[docs]</a><span class="k">def</span> <span class="nf">permtest_metric</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;pearsonr&#39;</span><span class="p">,</span> <span class="n">n_perm</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">nulls</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                     <span class="n">nan_policy</span><span class="o">=</span><span class="s1">&#39;propagate&#39;</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generates non-parameteric p-value of `a` and `b` for `metric`</span>
 
 <span class="sd">    Calculates two-tailed p-value for hypothesis of whether samples `a` and `b`</span>
@@ -264,7 +270,7 @@
 
 
 <span class="k">def</span> <span class="nf">efficient_pearsonr</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">nan_policy</span><span class="o">=</span><span class="s1">&#39;propagate&#39;</span><span class="p">,</span> <span class="n">return_pval</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes correlation of matching columns in `a` and `b`</span>
 
 <span class="sd">    Parameters</span>
