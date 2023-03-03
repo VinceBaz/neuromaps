@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>neuromaps.images.annot_to_gifti &mdash; neuromaps 0+untagged.1.g1d8fed5 documentation</title>
+  <title>neuromaps.images.annot_to_gifti &mdash; neuromaps 0+untagged.1.g47ea75f documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
@@ -34,15 +34,19 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html">
-            <img src="../_static/neuromaps_logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/neuromaps_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0+untagged.1.g1d8fed5
+                0+untagged.1.g47ea75f
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -97,7 +101,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../api.html">Reference API</a></li>
       <li class="breadcrumb-item active">neuromaps.images.annot_to_gifti</li>
       <li class="wy-breadcrumbs-aside">
@@ -115,7 +119,7 @@
 <span class="sig-prename descclassname"><span class="pre">neuromaps.images.</span></span><span class="sig-name descname"><span class="pre">annot_to_gifti</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parcellation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/neuromaps/images.html#annot_to_gifti"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#neuromaps.images.annot_to_gifti" title="Permalink to this definition"></a></dt>
 <dd><p>Converts FreeSurfer-style annotation <cite>parcellation</cite> files to GIFTI images</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>parcellation</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#tuple" title="(in Python v3.6)"><em>tuple</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.6/library/os.html#os.PathLike" title="(in Python v3.6)"><em>os.PathLike</em></a>) – Paths to surface annotation files (.annot)</p></li>
 <li><p><strong>background</strong> (<em>list-of-str</em><em>, </em><em>optional</em>) – If provided, a list of IDs in <cite>parcellation</cite> that should be set to 0
@@ -124,10 +128,10 @@ are consecutive (i.e., 0–N). If not specified will use labels in
 <cite>neuromaps.images.PARCIGNORE</cite>. Default: None</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>gifti</strong> – Converted GIFTI images</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>tuple-of-nib.GiftiImage</p>
 </dd>
 </dl>
