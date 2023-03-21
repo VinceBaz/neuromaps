@@ -23,7 +23,7 @@ Examples
 .. only:: html
 
   .. image:: /auto_examples/images/thumb/sphx_glr_plot_fetch_datasets_thumb.png
-    :alt: Fetching atlases and annotations
+    :alt:
 
   :ref:`sphx_glr_auto_examples_plot_fetch_datasets.py`
 
@@ -40,7 +40,7 @@ Examples
 .. only:: html
 
   .. image:: /auto_examples/images/thumb/sphx_glr_plot_spatial_nulls_thumb.png
-    :alt: Using spatial null models
+    :alt:
 
   :ref:`sphx_glr_auto_examples_plot_spatial_nulls.py`
 
