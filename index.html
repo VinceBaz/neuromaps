@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Installation requirements &mdash; neuromaps 0+untagged.1.g96ff4f0 documentation</title>
+  <title>Installation requirements &mdash; neuromaps 0+untagged.1.gabc085a documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/sg_gallery.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="_static/neuromaps_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0+untagged.1.g96ff4f0
+                0+untagged.1.gabc085a
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -85,7 +85,8 @@
              
   <img alt="neuromaps_logo.png" src="neuromaps_logo.png" />
 <p>The <code class="docutils literal notranslate"><span class="pre">neuromaps</span></code> toolbox is designed to help researchers make easy,
-statistically-rigorous comparisons between brain maps (or brain annotations).</p>
+statistically-rigorous comparisons between brain maps (or brain annotations).
+Documentation can be found <a class="reference external" href="https://netneurolab.github.io/neuromaps/">here</a>.</p>
 <p>The accompanying paper is published in <a class="reference external" href="https://www.nature.com/articles/s41592-022-01625-w">Nature Methods</a>.</p>
 <a class="reference external image-reference" href="https://doi.org/10.5281/zenodo.5842499"><img alt="https://zenodo.org/badge/DOI/10.5281/zenodo.5842499.svg" src="https://zenodo.org/badge/DOI/10.5281/zenodo.5842499.svg" /></a>
 <section id="installation-requirements">
@@ -114,8 +115,14 @@ order to use most of the transformation / resampling functionality of
 <section id="citation">
 <span id="installation"></span><h1>Citation<a class="headerlink" href="#citation" title="Permalink to this heading"></a></h1>
 <p>If you use the <code class="docutils literal notranslate"><span class="pre">neuromaps</span></code> toolbox, please cite our <a class="reference external" href="https://www.nature.com/articles/s41592-022-01625-w">paper</a>.
-If you use data included in the <code class="docutils literal notranslate"><span class="pre">neuromaps</span></code> repository, be sure to cite the original paper that published this data.
-A table with references for each brain map can be found in the Wiki.</p>
+<strong>Importantly</strong>, <code class="docutils literal notranslate"><span class="pre">neuromaps</span></code> implements and builds on tools that have been previously developed, and we redistribute data that was acquired elsewhere.
+Please be sure to cite the appropriate literature when using <code class="docutils literal notranslate"><span class="pre">neuromaps</span></code>, which we detail below.</p>
+<ul class="simple">
+<li><p>If you use volume-to-surface transformations (registration fusion), please cite <a class="reference external" href="https://journals.physiology.org/doi/full/10.1152/jn.00339.2011">Buckner et al 2011</a> (original proposition) and <a class="reference external" href="https://onlinelibrary.wiley.com/doi/10.1002/hbm.24213">Wu et al 2018</a> (first implementation of MNI152 to fsaverage transformation).</p></li>
+<li><p>If you use surface-to-surface transformations (multimodal surface matching), please cite <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1053811914004546?via%3Dihub">Robinson et al 2014</a> and <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1053811917308649?via%3Dihub">Robinson et al 2018</a>.</p></li>
+<li><p>If you use data included in <code class="docutils literal notranslate"><span class="pre">neuromaps</span></code>, please cite the the original papers that publish the data. A table with references for each brain annotation can be found in our <a class="reference external" href="https://github.com/netneurolab/neuromaps/wiki">wiki</a>, or more specifically, at <a class="reference external" href="https://docs.google.com/spreadsheets/d/1oZecOsvtQEh5pQkIf8cB6CyhPKVrQuko/edit?rtpof=true&amp;sd=true#gid=1162991686">this</a> link.</p></li>
+<li><p>If you use the spatial null models, there is an associated citation with each type of null model. They can be found in the docstring of the function, and also <a class="reference external" href="https://netneurolab.github.io/neuromaps/api.html#module-neuromaps.nulls">here</a>.</p></li>
+</ul>
 </section>
 <section id="license-information">
 <h1>License information<a class="headerlink" href="#license-information" title="Permalink to this heading"></a></h1>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>neuromaps.stats.permtest_metric &mdash; neuromaps 0+untagged.1.g96ff4f0 documentation</title>
+  <title>neuromaps.stats.permtest_metric &mdash; neuromaps 0+untagged.1.gabc085a documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
@@ -42,7 +42,7 @@
               <img src="../_static/neuromaps_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0+untagged.1.g96ff4f0
+                0+untagged.1.gabc085a
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -107,7 +107,7 @@
 <h1>neuromaps.stats.permtest_metric<a class="headerlink" href="#neuromaps-stats-permtest-metric" title="Permalink to this heading"></a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="neuromaps.stats.permtest_metric">
-<span class="sig-prename descclassname"><span class="pre">neuromaps.stats.</span></span><span class="sig-name descname"><span class="pre">permtest_metric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pearsonr'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_perm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nulls</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nan_policy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'propagate'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/neuromaps/stats.html#permtest_metric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#neuromaps.stats.permtest_metric" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">neuromaps.stats.</span></span><span class="sig-name descname"><span class="pre">permtest_metric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pearsonr'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_perm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nulls</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nan_policy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'propagate'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_nulls</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/neuromaps/stats.html#permtest_metric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#neuromaps.stats.permtest_metric" title="Permalink to this definition"></a></dt>
 <dd><p>Generates non-parameteric p-value of <cite>a</cite> and <cite>b</cite> for <cite>metric</cite></p>
 <p>Calculates two-tailed p-value for hypothesis of whether samples <cite>a</cite> and <cite>b</cite>
 are related using permutation tests</p>
@@ -132,12 +132,15 @@ Default: None</p></li>
 <li><p><strong>nan_policy</strong> (<em>{'propagate'</em><em>, </em><em>'raise'</em><em>, </em><em>'omit'}</em><em>, </em><em>optional</em>) – Defines how to handle when inputs contain nan. ‘propagate’ returns nan,
 ‘raise’ throws an error, ‘omit’ performs the calculations ignoring nan
 values. Default: ‘propagate’</p></li>
+<li><p><strong>return_nulls</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a><em>, </em><em>optional</em>) – Whether to return the null distribution of comparisons. Default: False</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><strong>similarity</strong> (<em>float</em>) – Similarity metric</p></li>
 <li><p><strong>pvalue</strong> (<em>float</em>) – Non-parametric p-value</p></li>
+<li><p><strong>nulls</strong> (<em>(n_perm, ) array_like</em>) – Null distribution of similarity metrics. Only returned if
+<cite>return_nulls</cite> is True.</p></li>
 </ul>
 </p>
 </dd>

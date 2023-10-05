@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brain maps and annotations &mdash; neuromaps 0+untagged.1.g96ff4f0 documentation</title>
+  <title>Brain maps and annotations &mdash; neuromaps 0+untagged.1.gabc085a documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
@@ -42,7 +42,7 @@
               <img src="../_static/neuromaps_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0+untagged.1.g96ff4f0
+                0+untagged.1.gabc085a
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -100,7 +100,15 @@ repository of brain maps (which we frequently refer to as brain annotations).
 These annotations are spatial maps representing some feature of interest and
 are available in at least one of the four standard coordinate systems.</p>
 <p>We have curated a set of brain annotations that we make available through a
-standard interface. You can search for available annotations using the
+standard interface.
+More details about each annotation can be found in our <a class="reference external" href="https://github.com/netneurolab/neuromaps/wiki/Annotation-information">Wiki</a>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><code class="docutils literal notranslate"><span class="pre">neuromaps</span></code> curates data that was acquired by other groups.
+If you fetch data from <code class="docutils literal notranslate"><span class="pre">neuromaps</span></code>, please cite the accompanying
+papers listed for each annotation in the <a class="reference external" href="https://github.com/netneurolab/neuromaps/wiki/Annotation-information">Wiki</a>.</p>
+</div>
+<p>You can search for available annotations using the
 <a class="reference internal" href="../generated/neuromaps.datasets.available_annotations.html#neuromaps.datasets.available_annotations" title="neuromaps.datasets.available_annotations"><code class="xref py py-func docutils literal notranslate"><span class="pre">neuromaps.datasets.available_annotations()</span></code></a> function:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">neuromaps.datasets</span> <span class="kn">import</span> <span class="n">available_annotations</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">annotation</span> <span class="ow">in</span> <span class="n">available_annotations</span><span class="p">():</span>
@@ -128,8 +136,7 @@ second entry in the tuple provides a brief description of what the map
 represents. (Because these descriptors are encoded directly in the filenames of
 the relevant maps we are somewhat limited in terms of space.) The last two
 entries in the tuple correspond to the coordinate system and density/resolution
-in which the annotations are provided. More details on each annotation, as well
-as papers to cite if you use the data, exist on our <a class="reference external" href="https://github.com/netneurolab/neuromaps/wiki/Annotation-information">Wiki</a>.</p>
+in which the annotations are provided.</p>
 <p>This function also accepts keyword arguments in case we want to narrow down the
 list of returned annotations:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">annotation</span> <span class="ow">in</span> <span class="n">available_annotations</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s1">&#39;abagen&#39;</span><span class="p">):</span>

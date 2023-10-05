@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>neuromaps.stats.compare_images &mdash; neuromaps 0+untagged.1.g96ff4f0 documentation</title>
+  <title>neuromaps.stats.compare_images &mdash; neuromaps 0+untagged.1.gabc085a documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
@@ -42,7 +42,7 @@
               <img src="../_static/neuromaps_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0+untagged.1.g96ff4f0
+                0+untagged.1.gabc085a
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -107,7 +107,7 @@
 <h1>neuromaps.stats.compare_images<a class="headerlink" href="#neuromaps-stats-compare-images" title="Permalink to this heading"></a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="neuromaps.stats.compare_images">
-<span class="sig-prename descclassname"><span class="pre">neuromaps.stats.</span></span><span class="sig-name descname"><span class="pre">compare_images</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pearsonr'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_zero</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nulls</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nan_policy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'omit'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/neuromaps/stats.html#compare_images"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#neuromaps.stats.compare_images" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">neuromaps.stats.</span></span><span class="sig-name descname"><span class="pre">compare_images</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pearsonr'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_zero</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nulls</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nan_policy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'omit'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_nulls</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/neuromaps/stats.html#compare_images"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#neuromaps.stats.compare_images" title="Permalink to this definition"></a></dt>
 <dd><p>Compares images <cite>src</cite> and <cite>trg</cite></p>
 <p>If <cite>src</cite> and <cite>trg</cite> represent data from multiple hemispheres the data are
 concatenated across hemispheres prior to comparison</p>
@@ -129,12 +129,16 @@ If not specified a parameteric p-value is generated. Default: None</p></li>
 the nan values to the callable metric (will return nan if the metric
 is <cite>spearmanr</cite> <cite>or pearsonr</cite>), ‘raise’ throws an error, ‘omit’ performs
 the calculations ignoring nan values. Default: ‘omit’</p></li>
+<li><p><strong>return_nulls</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a><em>, </em><em>optional</em>) – Whether to return the null distribution of comparisons. Can only be set
+to <cite>True</cite> if <cite>nulls</cite> is not None. Default: False</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><strong>similarity</strong> (<em>float</em>) – Comparison metric between <cite>src</cite> and <cite>trg</cite></p></li>
 <li><p><strong>pvalue</strong> (<em>float</em>) – The p-value of <cite>similarity</cite>, if <cite>nulls</cite> is not None</p></li>
+<li><p><strong>nulls</strong> (<em>(n_perm, ) array_like</em>) – Null distribution of similarity metrics. Only returned if
+<cite>return_nulls</cite> is True.</p></li>
 </ul>
 </p>
 </dd>

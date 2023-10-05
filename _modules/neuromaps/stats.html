@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>neuromaps.stats &mdash; neuromaps 0+untagged.1.g96ff4f0 documentation</title>
+  <title>neuromaps.stats &mdash; neuromaps 0+untagged.1.gabc085a documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
@@ -39,7 +39,7 @@
               <img src="../../_static/neuromaps_logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0+untagged.1.g96ff4f0
+                0+untagged.1.gabc085a
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -102,7 +102,7 @@
 
 
 <div class="viewcode-block" id="compare_images"><a class="viewcode-back" href="../../generated/neuromaps.stats.compare_images.html#neuromaps.stats.compare_images">[docs]</a><span class="k">def</span> <span class="nf">compare_images</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">trg</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;pearsonr&#39;</span><span class="p">,</span> <span class="n">ignore_zero</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">nulls</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                   <span class="n">nan_policy</span><span class="o">=</span><span class="s1">&#39;omit&#39;</span><span class="p">):</span>
+                   <span class="n">nan_policy</span><span class="o">=</span><span class="s1">&#39;omit&#39;</span><span class="p">,</span> <span class="n">return_nulls</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compares images `src` and `trg`</span>
 
@@ -129,6 +129,9 @@
 <span class="sd">        the nan values to the callable metric (will return nan if the metric</span>
 <span class="sd">        is `spearmanr` `or pearsonr`), &#39;raise&#39; throws an error, &#39;omit&#39; performs</span>
 <span class="sd">        the calculations ignoring nan values. Default: &#39;omit&#39;</span>
+<span class="sd">    return_nulls : bool, optional</span>
+<span class="sd">        Whether to return the null distribution of comparisons. Can only be set</span>
+<span class="sd">        to `True` if `nulls` is not None. Default: False</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -136,16 +139,22 @@
 <span class="sd">         Comparison metric between `src` and `trg`</span>
 <span class="sd">    pvalue : float</span>
 <span class="sd">        The p-value of `similarity`, if `nulls` is not None</span>
+<span class="sd">    nulls : (n_perm, ) array_like</span>
+<span class="sd">        Null distribution of similarity metrics. Only returned if</span>
+<span class="sd">        `return_nulls` is True.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">methods</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;pearsonr&#39;</span><span class="p">,</span> <span class="s1">&#39;spearmanr&#39;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">metric</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">methods</span><span class="p">:</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">callable</span><span class="p">(</span><span class="n">metric</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">callable</span><span class="p">(</span><span class="n">metric</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Invalid `metric`: </span><span class="si">{</span><span class="n">metric</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">metric</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span> <span class="nb">float</span><span class="p">):</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Provided callable `metric` must accept two &#39;</span>
                                  <span class="s1">&#39;inputs and return single value.&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">return_nulls</span> <span class="ow">and</span> <span class="n">nulls</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;`return_nulls` cannot be True when `nulls` is None.&#39;</span><span class="p">)</span>
 
     <span class="n">srcdata</span><span class="p">,</span> <span class="n">trgdata</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">(</span><span class="n">src</span><span class="p">),</span> <span class="n">load_data</span><span class="p">(</span><span class="n">trg</span><span class="p">)</span>
 
@@ -175,13 +184,14 @@
         <span class="n">n_perm</span> <span class="o">=</span> <span class="n">nulls</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="n">nulls</span> <span class="o">=</span> <span class="n">nulls</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">permtest_metric</span><span class="p">(</span><span class="n">srcdata</span><span class="p">,</span> <span class="n">trgdata</span><span class="p">,</span> <span class="n">metric</span><span class="p">,</span> <span class="n">n_perm</span><span class="o">=</span><span class="n">n_perm</span><span class="p">,</span>
-                               <span class="n">nulls</span><span class="o">=</span><span class="n">nulls</span><span class="p">,</span> <span class="n">nan_policy</span><span class="o">=</span><span class="n">nan_policy</span><span class="p">)</span>
+                               <span class="n">nulls</span><span class="o">=</span><span class="n">nulls</span><span class="p">,</span> <span class="n">nan_policy</span><span class="o">=</span><span class="n">nan_policy</span><span class="p">,</span>
+                               <span class="n">return_nulls</span><span class="o">=</span><span class="n">return_nulls</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">metric</span><span class="p">(</span><span class="n">srcdata</span><span class="p">,</span> <span class="n">trgdata</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="permtest_metric"><a class="viewcode-back" href="../../generated/neuromaps.stats.permtest_metric.html#neuromaps.stats.permtest_metric">[docs]</a><span class="k">def</span> <span class="nf">permtest_metric</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;pearsonr&#39;</span><span class="p">,</span> <span class="n">n_perm</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">nulls</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                    <span class="n">nan_policy</span><span class="o">=</span><span class="s1">&#39;propagate&#39;</span><span class="p">):</span>
+                    <span class="n">nan_policy</span><span class="o">=</span><span class="s1">&#39;propagate&#39;</span><span class="p">,</span> <span class="n">return_nulls</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generates non-parameteric p-value of `a` and `b` for `metric`</span>
 
@@ -213,6 +223,8 @@
 <span class="sd">        Defines how to handle when inputs contain nan. &#39;propagate&#39; returns nan,</span>
 <span class="sd">        &#39;raise&#39; throws an error, &#39;omit&#39; performs the calculations ignoring nan</span>
 <span class="sd">        values. Default: &#39;propagate&#39;</span>
+<span class="sd">    return_nulls : bool, optional</span>
+<span class="sd">        Whether to return the null distribution of comparisons. Default: False</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -220,6 +232,9 @@
 <span class="sd">        Similarity metric</span>
 <span class="sd">    pvalue : float</span>
 <span class="sd">        Non-parametric p-value</span>
+<span class="sd">    nulls : (n_perm, ) array_like</span>
+<span class="sd">        Null distribution of similarity metrics. Only returned if</span>
+<span class="sd">        `return_nulls` is True.</span>
 
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
@@ -261,14 +276,18 @@
     <span class="n">abs_true</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">true_sim</span><span class="p">)</span>
 
     <span class="n">permutations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">true_sim</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">nulldist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(((</span><span class="n">n_perm</span><span class="p">,</span> <span class="p">)</span> <span class="o">+</span> <span class="n">true_sim</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
     <span class="k">for</span> <span class="n">perm</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_perm</span><span class="p">):</span>
         <span class="c1"># permute `a` and determine whether correlations exceed original</span>
         <span class="n">ap</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">rs</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">))]</span> <span class="k">if</span> <span class="n">nulls</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">nulls</span><span class="p">[:,</span> <span class="n">perm</span><span class="p">]</span>
-        <span class="n">permutations</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span>
-            <span class="n">compfunc</span><span class="p">(</span><span class="n">ap</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">nan_policy</span><span class="o">=</span><span class="n">nan_policy</span><span class="p">)</span>
-        <span class="p">)</span> <span class="o">&gt;=</span> <span class="n">abs_true</span>
+        <span class="n">nullcomp</span> <span class="o">=</span> <span class="n">compfunc</span><span class="p">(</span><span class="n">ap</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">nan_policy</span><span class="o">=</span><span class="n">nan_policy</span><span class="p">)</span>
+        <span class="n">permutations</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">nullcomp</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">abs_true</span>
+        <span class="n">nulldist</span><span class="p">[</span><span class="n">perm</span><span class="p">]</span> <span class="o">=</span> <span class="n">nullcomp</span>
 
     <span class="n">pvals</span> <span class="o">=</span> <span class="n">permutations</span> <span class="o">/</span> <span class="p">(</span><span class="n">n_perm</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># + 1 in denom accounts for true_sim</span>
+
+    <span class="k">if</span> <span class="n">return_nulls</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">true_sim</span><span class="p">,</span> <span class="n">pvals</span><span class="p">,</span> <span class="n">nulldist</span>
 
     <span class="k">return</span> <span class="n">true_sim</span><span class="p">,</span> <span class="n">pvals</span></div>
 
